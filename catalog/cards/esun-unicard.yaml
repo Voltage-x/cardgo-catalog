@@ -1,0 +1,163 @@
+id: esun-unicard
+name: 玉山 Unicard
+issuer: 玉山銀行
+image: catalog/cards/esun-unicard.png
+networks: [visa, mastercard, jcb]
+source: https://www.esunbank.com/zh-tw/personal/credit-card/intro/bank-card/unicard
+effective:
+  from: "2026-07-01"
+  to: "2026-12-31"
+settlement:
+  note: 百大加碼以每月最後一天的方案結算。這裡用你現在選的方案估算。
+caveat: 用 LINE Pay 等支付去買電商或百貨時，銀行可能改算成行動支付。1 點 e point 先按 1 元。
+tiers:
+  - {id: standard, name: 一般}
+flags:
+  - {id: ebill, name: 電子帳單}
+  - {id: autodebit, name: 玉山台幣帳戶自動扣繳}
+schemes:
+  - {id: simple, name: 簡單選}
+  - {id: pick8, name: 任意選, pick_max: 8, pick_pool: unicard_top100}
+  - {id: up, name: UP選}
+switches:
+  - {id: monthly, max: 30, period: calendar_month, actions: [change_scheme, change_picks]}
+groups:
+  excluded: [seven_eleven, family_mart, hi_life, ok_mart, pxmart, tax, utilities]
+  unicard_top100:
+    - esun_wallet
+    - line_pay
+    - pxpay
+    - jko
+    - easy_wallet
+    - pluspay
+    - ipass_money
+    - icash_pay
+    - alipay
+    - momo
+    - shopee
+    - taobao
+    - coupang
+    - shin_kong_mitsukoshi
+    - far_eastern_sogo
+    - far_eastern_garden
+    - far_eastern_dept
+    - big_city
+    - hanshin
+    - hanshin_intercontinental
+    - breeze
+    - taipei_101
+    - gloria_outlets
+    - mitsui_outlet
+    - eslite
+    - showtime
+    - lalaport
+    - uni_style
+    - dream_plaza
+    - ever_rich
+    - global_mall
+    - watsons
+    - cosmed
+    - trplus
+    - hola
+    - hoi
+    - uniqlo
+    - net_store
+    - medfirst
+    - cadomo
+    - uber_eats
+    - foodpanda
+    - wowprime
+    - cpc_gas
+    - fpg_pay
+    - taiwan_taxi
+    - tra
+    - thsr
+    - uber
+    - china_airlines
+    - eva_air
+    - jal
+    - tigerair
+    - peach
+    - scoot
+    - trip_com
+    - booking
+    - hotels
+    - expedia
+    - kkday
+    - klook
+    - lion_travel
+    - cola_tour
+    - set_tour
+    - agoda
+    - five_blessings
+    - galilee
+    - find_tour
+    - hihung
+    - phoenix_tour
+    - japan
+    - korea
+    - thailand
+    - vietnam
+    - singapore
+    - malaysia
+    - philippines
+    - china
+    - hong_kong
+    - macau
+    - usa
+    - canada
+    - uk
+    - france
+    - germany
+    - italy
+    - australia
+    - new_zealand
+    - apple_store
+    - xiaomi
+    - e_life
+    - tsannkuen
+    - tixcraft
+    - vieshow
+    - ambassador
+    - shin_kong_cinema
+    - cashbox
+    - esun_donate
+    - tesla
+rules:
+  - id: bonus_simple
+    label: 簡單選加碼
+    when: {schemes: [simple], any_merchant: ["group:unicard_top100"]}
+    mode: extra
+    rate: 0.02
+    reward: esun_epoint
+    cap: {id: unicard_bonus, max_reward: 1000, period: calendar_month}
+  - id: bonus_pick
+    label: 任意選加碼
+    when: {schemes: [pick8], any_merchant: [picked]}
+    mode: extra
+    rate: 0.025
+    reward: esun_epoint
+    cap: {id: unicard_bonus, max_reward: 1000, period: calendar_month}
+  - id: bonus_up
+    label: UP選加碼
+    when: {schemes: [up], any_merchant: ["group:unicard_top100"]}
+    mode: extra
+    rate: 0.035
+    reward: esun_epoint
+    cap: {id: unicard_bonus, max_reward: 5000, period: calendar_month}
+  - id: base_full
+    kind: general
+    label: 一般消費
+    when: {flags_all: [ebill, autodebit]}
+    unless: {any_merchant: ["group:excluded"]}
+    mode: instead
+    rate: 0.01
+    reward: esun_epoint
+  - id: base_ebill
+    kind: general
+    label: 一般消費
+    when: {flags_all: [ebill], flags_none: [autodebit]}
+    unless: {any_merchant: ["group:excluded"]}
+    mode: instead
+    rate: 0.003
+    reward: esun_epoint

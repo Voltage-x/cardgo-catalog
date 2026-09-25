@@ -1,0 +1,7 @@
+currencies:
+  - {id: cathay_tree_point, name: 小樹點, twd_per_unit: 1}
+  - {id: esun_epoint, name: 玉山 e point, twd_per_unit: 1}
+  - {id: twd_cash, name: 現金回饋, twd_per_unit: 1}
+  - {id: line_points, name: LINE POINTS, twd_per_unit: 1}
+  - {id: taishin_point, name: 台新Point, twd_per_unit: 1}
+  - {id: hsbc_mile, name: 滙豐里程約當, twd_per_unit: 1}

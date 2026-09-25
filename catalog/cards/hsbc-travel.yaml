@@ -1,0 +1,26 @@
+id: hsbc-travel
+name: 滙豐旅人卡
+issuer: 滙豐銀行
+image: catalog/cards/hsbc-travel.png
+networks: [visa]
+source: https://shop.hsbc.com.tw/installments/creditcard/rewards/info.html
+settlement:
+  note: 海外指帳單有列國外交易手續費的消費。沒有通路限制，也沒有回饋上限。
+caveat: 回饋率用 1 點 0.3 元換算（5,000 點換 1,500 元），方便跟現金卡比較。實際累點是無限卡海外 10 元 1 點、國內 18 元 1 點；御璽卡海外 15 元 1 點、國內 18 元 1 點；輕旅卡 20 元 1 點。1 點可 1:1 換哩程，哩程往往比這個現金約當更划算。
+tiers:
+  - {id: infinite, name: 無限}
+  - {id: signature, name: 御璽}
+  - {id: light, name: 輕旅}
+rules:
+  - id: domestic
+    label: 國內消費
+    when: {regions: [domestic]}
+    mode: instead
+    rate_by_tier: {infinite: 0.0166, signature: 0.0166, light: 0.015}
+    reward: hsbc_mile
+  - id: overseas
+    label: 海外消費
+    when: {regions: [overseas]}
+    mode: instead
+    rate_by_tier: {infinite: 0.03, signature: 0.02, light: 0.015}
+    reward: hsbc_mile

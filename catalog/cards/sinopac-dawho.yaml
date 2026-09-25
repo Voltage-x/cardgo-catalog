@@ -1,0 +1,64 @@
+id: sinopac-dawho
+name: 永豐 DAWHO
+issuer: 永豐銀行
+image: catalog/cards/sinopac-dawho.png
+networks: [visa, mastercard, jcb]
+source: https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/bankcard/DAWHO.html
+effective:
+  from: "2026-07-01"
+  to: "2026-12-31"
+settlement:
+  note: 加碼與悠遊卡上限依結帳日的帳單週期，不是日曆月。等級要自己選，app 不會判斷任務有沒有達成。
+tiers:
+  - {id: dada, name: 大大}
+  - {id: dahu, name: 大戶}
+  - {id: dahu_plus, name: 大戶 Plus}
+rules:
+  - id: domestic_base
+    kind: general
+    label: 國內一般消費
+    when: {regions: [domestic]}
+    unless: {any_merchant: [easycard_autoload]}
+    mode: instead
+    rate: 0.01
+    reward: twd_cash
+  - id: overseas_base
+    kind: general
+    label: 海外一般消費
+    when: {regions: [overseas]}
+    unless: {any_merchant: [easycard_autoload]}
+    mode: instead
+    rate: 0.02
+    reward: twd_cash
+  - id: domestic_bonus
+    label: 國內任務加碼
+    when: {regions: [domestic], tiers: [dahu, dahu_plus]}
+    unless: {any_merchant: [easycard_autoload, insurance]}
+    mode: extra
+    rate_by_tier: {dahu: 0.025, dahu_plus: 0.04}
+    reward: twd_cash
+    cap:
+      id: dawho_bonus
+      period: billing_cycle
+      max_reward_by_tier: {dahu: 400, dahu_plus: 1000}
+  - id: overseas_bonus
+    label: 海外任務加碼
+    when: {regions: [overseas], tiers: [dahu, dahu_plus]}
+    unless: {any_merchant: [easycard_autoload, insurance]}
+    mode: extra
+    rate_by_tier: {dahu: 0.025, dahu_plus: 0.04}
+    reward: twd_cash
+    cap:
+      id: dawho_bonus
+      period: billing_cycle
+      max_reward_by_tier: {dahu: 400, dahu_plus: 1000}
+  - id: easycard
+    label: 悠遊卡自動加值
+    when: {any_merchant: [easycard_autoload], tiers: [dahu, dahu_plus]}
+    mode: instead
+    rate_by_tier: {dahu: 0.03, dahu_plus: 0.05}
+    reward: twd_cash
+    cap:
+      id: dawho_easycard
+      period: billing_cycle
+      max_reward_by_tier: {dahu: 100, dahu_plus: 500}

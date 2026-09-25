@@ -1,0 +1,364 @@
+# 通路主檔。卡片規則只用 id，店名集中在這裡。
+merchants:
+  - {id: utilities, name: 水電瓦斯, aliases: [水費, 電費, 瓦斯費], kind: brand}
+  - {id: insurance, name: 保費, kind: brand}
+  - {id: tax, name: 稅費, kind: brand}
+  - {id: telecom, name: 電信費, kind: brand}
+  - {id: seven_eleven, name: 7-ELEVEN, aliases: ["7-11", 統一超商, 小七], kind: brand}
+  - {id: family_mart, name: 全家便利商店, aliases: [全家], kind: brand}
+  - {id: hi_life, name: 萊爾富, kind: brand}
+  - {id: ok_mart, name: OK超商, aliases: [OK便利商店], kind: brand}
+  - {id: pxmart, name: 全聯, aliases: [全聯福利中心], kind: brand}
+  - {id: domestic_dining, name: 國內餐飲, kind: mcc, google_types: [restaurant, cafe, bakery, meal_takeaway, meal_delivery]}
+  - {id: overseas_instore, name: 海外實體消費, kind: region, region: overseas, rail: card_present}
+  - {id: easycard_autoload, name: 悠遊卡自動加值, aliases: [悠遊卡], kind: rail, rail: easycard_autoload}
+  - {id: line_pay, name: LINE Pay, aliases: [連加, LINEPAY], kind: rail, rail: line_pay}
+  - {id: domestic_hotel, name: 國內飯店住宿, kind: brand}
+
+  - {id: far_eastern_sogo, name: 遠東SOGO, aliases: [SOGO], kind: brand}
+  - {id: far_eastern_garden, name: 遠東Garden City, aliases: [大巨蛋], kind: brand}
+  - {id: shin_kong_mitsukoshi, name: 新光三越, aliases: [SKM], kind: brand}
+  - {id: far_eastern_dept, name: 遠東百貨, aliases: [遠百], kind: brand}
+  - {id: taipei_101, name: 台北101, kind: brand}
+  - {id: bellavita, name: BELLAVITA, kind: brand}
+  - {id: breeze, name: 微風百貨, aliases: [微風廣場, 微風南山], kind: brand}
+  - {id: uni_style, name: 統一時代百貨, aliases: [統一時代], kind: brand}
+  - {id: dream_plaza, name: DREAM PLAZA, kind: brand}
+  - {id: eslite, name: 誠品生活, aliases: [誠品], kind: brand}
+  - {id: att4fun, name: ATT 4 FUN, kind: brand}
+  - {id: qsquare, name: 京站, kind: brand}
+  - {id: miramar, name: 美麗華, kind: brand}
+  - {id: noke, name: NOKE忠泰樂生活, aliases: [NOKE], kind: brand}
+  - {id: takashimaya, name: 大葉高島屋, kind: brand}
+  - {id: lalaport, name: LaLaport, kind: brand}
+  - {id: honhui, name: 宏匯廣場, kind: brand}
+  - {id: taimall, name: 台茂購物中心, kind: brand}
+  - {id: metro_walk, name: 大江國際購物中心, kind: brand}
+  - {id: big_city, name: Big City遠東巨城, aliases: [遠東巨城], kind: brand}
+  - {id: chungyo, name: 中友百貨, kind: brand}
+  - {id: sogo_taichung, name: 廣三SOGO, kind: brand}
+  - {id: dream_mall, name: 夢時代, aliases: [南紡購物中心], kind: brand}
+  - {id: hanshin, name: 漢神百貨, kind: brand}
+  - {id: hanshin_arena, name: 漢神巨蛋, kind: brand}
+  - {id: hanshin_intercontinental, name: 台中漢神洲際購物廣場, kind: brand}
+  - {id: crescent, name: 新月廣場, kind: brand}
+  - {id: citylink, name: CITYLINK, kind: brand}
+  - {id: showtime, name: 秀泰生活, aliases: [秀泰], kind: brand}
+  - {id: global_mall, name: 環球購物中心, aliases: [Global Mall], kind: brand}
+  - {id: pacific_dept, name: 太平洋百貨, kind: brand}
+  - {id: gloria_outlets, name: 華泰名品城, kind: brand}
+  - {id: skm_park, name: SKM Park, kind: brand}
+  - {id: mitsui_outlet, name: 三井OUTLET, aliases: [MITSUI OUTLET], kind: brand}
+  - {id: ever_rich, name: 昇恆昌, kind: brand}
+
+  - {id: uber_eats, name: Uber Eats, kind: brand}
+  - {id: foodpanda, name: foodpanda, kind: brand}
+  - {id: mcdonalds, name: 麥當勞, aliases: [McDonald's], kind: brand}
+  - {id: cosmed, name: 康是美, kind: brand}
+  - {id: watsons, name: 屈臣氏, kind: brand}
+  - {id: starbucks, name: 星巴克, aliases: [Starbucks], kind: brand}
+  - {id: wowprime, name: 王品瘋Pay, aliases: [王品], kind: brand}
+
+  - {id: apple_media, name: Apple媒體服務, aliases: [App Store, Apple Music, iCloud], kind: brand}
+  - {id: google_play, name: Google Play, kind: brand}
+  - {id: disney_plus, name: Disney+, kind: brand}
+  - {id: netflix, name: Netflix, kind: brand}
+  - {id: spotify, name: Spotify, kind: brand}
+  - {id: youtube_premium, name: YouTube Premium, kind: brand}
+  - {id: max_streaming, name: Max, kind: brand}
+  - {id: shopee, name: 蝦皮購物, aliases: [蝦皮, Shopee], kind: brand}
+  - {id: momo, name: momo購物網, aliases: [momo], kind: brand}
+  - {id: pchome, name: PChome 24h, aliases: [PChome], kind: brand}
+  - {id: tree_mall, name: 小樹購, kind: brand}
+  - {id: coupang, name: Coupang酷澎, aliases: [Coupang, 酷澎], kind: brand}
+  - {id: taobao, name: 淘寶, aliases: [天貓], kind: brand}
+  - {id: chatgpt, name: ChatGPT, kind: brand}
+  - {id: canva, name: Canva, kind: brand}
+  - {id: claude, name: Claude, kind: brand}
+  - {id: cursor, name: Cursor, kind: brand}
+  - {id: duolingo, name: Duolingo, kind: brand}
+  - {id: gamma, name: Gamma, kind: brand}
+  - {id: gemini, name: Gemini, kind: brand}
+  - {id: notion, name: Notion, kind: brand}
+  - {id: perplexity, name: Perplexity, kind: brand}
+  - {id: speak, name: Speak, kind: brand}
+
+  - {id: tokyo_disney, name: 東京迪士尼, kind: brand}
+  - {id: harry_potter_tokyo, name: 東京哈利波特影城, kind: brand}
+  - {id: usj, name: 大阪環球影城, aliases: [USJ], kind: brand}
+  - {id: suica, name: Suica, aliases: [PASMO, ICOCA], kind: brand}
+  - {id: uber, name: Uber, kind: brand}
+  - {id: grab, name: Grab, kind: brand}
+  - {id: thsr, name: 台灣高鐵, aliases: [高鐵], kind: brand}
+  - {id: tra, name: 台鐵, kind: brand}
+  - {id: yoxi, name: yoxi, kind: brand}
+  - {id: taiwan_taxi, name: 台灣大車隊, aliases: ["55688"], kind: brand}
+  - {id: irent, name: iRent, kind: brand}
+  - {id: hotai, name: 和運租車, kind: brand}
+  - {id: carplus, name: 格上租車, kind: brand}
+  - {id: china_airlines, name: 中華航空, kind: brand}
+  - {id: eva_air, name: 長榮航空, kind: brand}
+  - {id: starlux, name: 星宇航空, kind: brand}
+  - {id: tigerair, name: 台灣虎航, kind: brand}
+  - {id: cathay_pacific, name: 國泰航空, kind: brand}
+  - {id: peach, name: 樂桃航空, kind: brand}
+  - {id: emirates, name: 阿聯酋航空, kind: brand}
+  - {id: scoot, name: 酷航, kind: brand}
+  - {id: jetstar, name: 捷星航空, kind: brand}
+  - {id: jal, name: 日本航空, aliases: [JAL], kind: brand}
+  - {id: ana, name: ANA全日空, aliases: [ANA], kind: brand}
+  - {id: airasia, name: 亞洲航空, aliases: [AirAsia], kind: brand}
+  - {id: united, name: 聯合航空, kind: brand}
+  - {id: singapore_air, name: 新加坡航空, kind: brand}
+  - {id: vietjet, name: 越捷航空, kind: brand}
+  - {id: korean_air, name: 大韓航空, kind: brand}
+  - {id: delta, name: 達美航空, kind: brand}
+  - {id: turkish, name: 土耳其航空, kind: brand}
+  - {id: qatar, name: 卡達航空, kind: brand}
+  - {id: air_france, name: 法國航空, kind: brand}
+  - {id: hoshino, name: 星野集團, kind: brand}
+  - {id: disney_hotel, name: 迪士尼飯店, kind: brand}
+  - {id: toyoko_inn, name: 東橫INN, kind: brand}
+  - {id: kkday, name: KKday, kind: brand}
+  - {id: klook, name: Klook, kind: brand}
+  - {id: agoda, name: Agoda, kind: brand}
+  - {id: airbnb, name: Airbnb, kind: brand}
+  - {id: booking, name: Booking.com, kind: brand}
+  - {id: trip_com, name: Trip.com, kind: brand}
+  - {id: expedia, name: Expedia, kind: brand}
+  - {id: hotels, name: Hotels.com, kind: brand}
+  - {id: eztravel, name: 易遊網, aliases: [ezTravel], kind: brand}
+  - {id: lion_travel, name: 雄獅旅遊, kind: brand}
+  - {id: cola_tour, name: 可樂旅遊, kind: brand}
+  - {id: set_tour, name: 東南旅遊, kind: brand}
+  - {id: five_blessings, name: 五福旅遊, kind: brand}
+  - {id: star_travel, name: 燦星旅遊, kind: brand}
+  - {id: rich_travel, name: 山富旅遊, kind: brand}
+  - {id: dragon_tour, name: 長汎假期, kind: brand}
+  - {id: phoenix_tour, name: 鳳凰旅遊, kind: brand}
+  - {id: ezfly, name: 易飛網, aliases: [Ezfly], kind: brand}
+  - {id: ideal_tour, name: 理想旅遊, kind: brand}
+  - {id: win_tour, name: 永利旅行社, kind: brand}
+  - {id: sanhe_tour, name: 三賀旅行社, kind: brand}
+  - {id: find_tour, name: 找到了旅行社, kind: brand}
+  - {id: galilee, name: 加利利旅行社, kind: brand}
+  - {id: hihung, name: 喜鴻假期, kind: brand}
+
+  - {id: upower, name: U-POWER, kind: brand}
+  - {id: evoasis, name: EVOASIS, kind: brand}
+  - {id: evalue, name: EVALUE, kind: brand}
+  - {id: tail_charge, name: TAIL, kind: brand}
+  - {id: icharging, name: iCharging, kind: brand}
+  - {id: mazeking, name: 車麻吉, kind: brand}
+  - {id: utaggo, name: uTagGo, kind: brand}
+  - {id: carrefour, name: 家樂福, aliases: [萬家福], kind: brand}
+  - {id: lopia, name: LOPIA, kind: brand}
+  - {id: cpc_gas, name: 台灣中油, aliases: [中油], kind: brand}
+  - {id: ikea, name: IKEA, aliases: [宜家家居], kind: brand}
+
+  - {id: fpg_gas, name: 台塑石油, kind: brand}
+  - {id: fpg_pay, name: 台塑石油PAY, kind: brand}
+  - {id: taiya_gas, name: 台亞加油站, kind: brand}
+  - {id: formosa_gas, name: 福懋加油站, kind: brand}
+  - {id: smile_gas, name: 統一速邁樂, kind: brand}
+  - {id: fpg_biomed, name: 台塑生醫, kind: brand}
+  - {id: chang_gung_biotech, name: 長庚生技, kind: brand}
+  - {id: fpg_veg, name: 台塑蔬菜, kind: brand}
+  - {id: fpg_shop, name: 台塑購物網, kind: brand}
+
+  - {id: esun_wallet, name: 玉山Wallet電子支付, aliases: [玉山Wallet], kind: rail, rail: esun_wallet}
+  - {id: pxpay, name: 全支付, kind: rail, rail: pxpay}
+  - {id: jko, name: 街口支付, kind: rail, rail: jko}
+  - {id: easy_wallet, name: 悠遊付, kind: rail, rail: easy_wallet}
+  - {id: pluspay, name: 全盈+PAY, kind: rail, rail: pluspay}
+  - {id: ipass_money, name: iPASS MONEY, kind: rail, rail: ipass_money}
+  - {id: icash_pay, name: icash Pay, kind: rail, rail: icash_pay}
+  - {id: alipay, name: 支付寶, kind: rail, rail: alipay}
+
+  - {id: trplus, name: 特力屋, kind: brand}
+  - {id: hola, name: HOLA, kind: brand}
+  - {id: hoi, name: hoi好好生活, kind: brand}
+  - {id: uniqlo, name: UNIQLO, kind: brand}
+  - {id: net_store, name: NET, kind: brand}
+  - {id: medfirst, name: 杏一藥局, kind: brand}
+  - {id: cadomo, name: 卡多摩, kind: brand}
+  - {id: apple_store, name: Apple直營店, aliases: [Apple Store], kind: brand}
+  - {id: xiaomi, name: 小米台灣, aliases: [小米], kind: brand}
+  - {id: e_life, name: 全國電子, kind: brand}
+  - {id: tsannkuen, name: 燦坤, kind: brand}
+  - {id: tixcraft, name: 拓元售票, kind: brand}
+  - {id: vieshow, name: 威秀影城, kind: brand}
+  - {id: ambassador, name: 國賓影城, kind: brand}
+  - {id: shin_kong_cinema, name: 新光影城, kind: brand}
+  - {id: cashbox, name: 錢櫃, aliases: [錢櫃KTV], kind: brand}
+  - {id: esun_donate, name: 玉山Wallet愛心捐款, kind: brand}
+  - {id: tesla, name: 特斯拉, aliases: [Tesla], kind: brand}
+
+  - {id: sushiro, name: 壽司郎, kind: brand}
+  - {id: kura_sushi, name: 藏壽司, kind: brand}
+  - {id: mos_burger, name: 摩斯漢堡, kind: brand}
+  - {id: komeda, name: 客美多, kind: brand}
+  - {id: gu, name: GU, kind: brand}
+  - {id: donki, name: 唐吉訶德, kind: brand}
+  - {id: nitori, name: 宜得利, aliases: [NITORI], kind: brand}
+
+  - {id: japan, name: 日本實體消費, aliases: [日本], kind: region, region: overseas, rail: card_present}
+  - {id: korea, name: 韓國實體消費, aliases: [韓國], kind: region, region: overseas, rail: card_present}
+  - {id: thailand, name: 泰國實體消費, aliases: [泰國], kind: region, region: overseas, rail: card_present}
+  - {id: vietnam, name: 越南實體消費, aliases: [越南], kind: region, region: overseas, rail: card_present}
+  - {id: singapore, name: 新加坡實體消費, aliases: [新加坡], kind: region, region: overseas, rail: card_present}
+  - {id: malaysia, name: 馬來西亞實體消費, aliases: [馬來西亞], kind: region, region: overseas, rail: card_present}
+  - {id: philippines, name: 菲律賓實體消費, aliases: [菲律賓], kind: region, region: overseas, rail: card_present}
+  - {id: china, name: 中國實體消費, aliases: [中國], kind: region, region: overseas, rail: card_present}
+  - {id: hong_kong, name: 香港實體消費, aliases: [香港], kind: region, region: overseas, rail: card_present}
+  - {id: macau, name: 澳門實體消費, aliases: [澳門], kind: region, region: overseas, rail: card_present}
+  - {id: usa, name: 美國實體消費, aliases: [美國], kind: region, region: overseas, rail: card_present}
+  - {id: canada, name: 加拿大實體消費, aliases: [加拿大], kind: region, region: overseas, rail: card_present}
+  - {id: uk, name: 英國實體消費, aliases: [英國], kind: region, region: overseas, rail: card_present}
+  - {id: france, name: 法國實體消費, aliases: [法國], kind: region, region: overseas, rail: card_present}
+  - {id: germany, name: 德國實體消費, aliases: [德國], kind: region, region: overseas, rail: card_present}
+  - {id: italy, name: 義大利實體消費, aliases: [義大利], kind: region, region: overseas, rail: card_present}
+  - {id: australia, name: 澳洲實體消費, aliases: [澳洲], kind: region, region: overseas, rail: card_present}
+  - {id: new_zealand, name: 紐西蘭實體消費, aliases: [紐西蘭], kind: region, region: overseas, rail: card_present}
+
+  - {id: taishin_pay, name: 台新Pay, kind: rail, rail: taishin_pay}
+  - {id: taishin_pay_plus, name: 台新Pay+, aliases: [台新電子支付], kind: rail, rail: taishin_pay_plus}
+
+  - {id: zhanji, name: 詹記麻辣火鍋, aliases: [詹記], kind: brand}
+  - {id: wancook, name: 萬客什鍋, kind: brand}
+  - {id: haidilao, name: 海底撈, kind: brand}
+  - {id: uma_yakiniku, name: 屋馬燒肉, aliases: [屋馬], kind: brand}
+  - {id: cha_liu, name: 茶六燒肉堂, aliases: [茶六], kind: brand}
+  - {id: shinchon, name: 新村站著吃, kind: brand}
+  - {id: yakiniku_masamune, name: 燒肉政宗, kind: brand}
+  - {id: tansuo_mali, name: 碳佐麻里, kind: brand}
+  - {id: jitang_uncle, name: 雞湯大叔, kind: brand}
+  - {id: gonna, name: gonna共樂遊, aliases: [共樂遊], kind: brand}
+  - {id: brun, name: BRUN不然, aliases: [不然], kind: brand}
+  - {id: cafe_acme, name: CAFE ACME, kind: brand}
+  - {id: antipodean, name: The Antipodean, kind: brand}
+  - {id: second_floor, name: 貳樓餐廳, aliases: [貳樓], kind: brand}
+  - {id: the_diner, name: 樂子 the Diner, aliases: [樂子], kind: brand}
+  - {id: fake_sober, name: Fake Sober, kind: brand}
+  - {id: draft_land, name: Draft Land, kind: brand}
+  - {id: taihu_brew, name: 臺虎精釀, aliases: [台虎精釀], kind: brand}
+  - {id: abv, name: ABV Bar, aliases: [ABV], kind: brand}
+  - {id: bar_tcrc, name: Bar TCRC, kind: brand}
+  - {id: bar_home, name: Bar Home, kind: brand}
+  - {id: phowa, name: Phowa, kind: brand}
+  - {id: moonrock, name: MOONROCK, kind: brand}
+  - {id: taiwan_driver, name: 台灣代駕, kind: brand}
+  - {id: motodomo, name: Motodomo愛車管家, aliases: [Motodomo], kind: brand}
+  - {id: fifty_lan, name: 50嵐, kind: brand}
+  - {id: de_zheng, name: 得正, kind: brand}
+  - {id: wu_tong, name: 五桐號, kind: brand}
+  - {id: gui_ji, name: 龜記, kind: brand}
+  - {id: ug_tea, name: UG TEA, kind: brand}
+  - {id: ding_ge, name: 叮哥茶飲, aliases: [叮哥], kind: brand}
+  - {id: cafen, name: CAFE!N, kind: brand}
+  - {id: arabica, name: "%Arabica", kind: brand}
+  - {id: compose_coffee, name: COMPOSE COFFEE, kind: brand}
+  - {id: inparadise, name: 饗饗, aliases: [INPARADISE], kind: brand}
+  - {id: nagomi, name: NAGOMI, kind: brand}
+  - {id: weverse, name: WEVERSE, kind: brand}
+  - {id: k_monstar, name: K-MONSTAR, kind: brand}
+  - {id: weileke, name: 微樂客, kind: brand}
+  - {id: five_music, name: 五大唱片, kind: brand}
+  - {id: fairy_tree, name: 仙女樹, kind: brand}
+  - {id: fanme, name: FANME, kind: brand}
+  - {id: nol, name: NOL, kind: brand}
+  - {id: bahamut, name: 巴哈姆特, kind: brand}
+  - {id: bookwalker, name: BOOK WALKER, kind: brand}
+  - {id: animate, name: Animate, kind: brand}
+  - {id: rakuten_kobo, name: 樂天KOBO, aliases: [KOBO], kind: brand}
+  - {id: readmoo, name: Readmoo讀墨, aliases: [讀墨], kind: brand}
+  - {id: elta, name: 愛爾達, kind: brand}
+  - {id: pinkoi, name: Pinkoi, kind: brand}
+  - {id: haohao_bio, name: 好好生醫, kind: brand}
+  - {id: popcare, name: POPCARE好在乎, aliases: [POPCARE], kind: brand}
+  - {id: dietitian_lite, name: 營養師輕食, kind: brand}
+  - {id: vitabox, name: VITABOX, kind: brand}
+  - {id: myprotein, name: MYPROTEIN, kind: brand}
+  - {id: urmart, name: UrMart優馬選品, aliases: [優馬選品], kind: brand}
+  - {id: anytime_fitness, name: Anytime Fitness, kind: brand}
+  - {id: fitness_factory, name: 健身工廠, kind: brand}
+  - {id: world_gym, name: World Gym, kind: brand}
+  - {id: hypercore, name: 超核心 Hypercore, aliases: [Hypercore], kind: brand}
+  - {id: kx_pilates, name: KX PILATES, kind: brand}
+  - {id: hu_tie, name: 虎鐵健身, kind: brand}
+  - {id: fit_17, name: 17FIT, kind: brand}
+  - {id: adidas, name: Adidas, kind: brand}
+  - {id: new_balance, name: New Balance, kind: brand}
+  - {id: puma, name: PUMA, kind: brand}
+  - {id: onitsuka, name: Onitsuka Tiger, kind: brand}
+  - {id: nike, name: Nike, kind: brand}
+  - {id: hoka, name: HOKA, kind: brand}
+  - {id: salomon, name: Salomon, kind: brand}
+  - {id: lululemon, name: lululemon, kind: brand}
+  - {id: studio_a, name: Studio A, aliases: [Straight A], kind: brand}
+  - {id: dji, name: DJI, kind: brand}
+  - {id: insta360, name: Insta360, kind: brand}
+  - {id: gopro, name: GoPro, kind: brand}
+
+  - {id: le_jia_kang, name: 樂家康, kind: brand}
+  - {id: da_buyer, name: 大買家, kind: brand}
+  - {id: zhi_life, name: 智生活, kind: brand}
+  - {id: line_go, name: LINE GO, aliases: [LINEGO], kind: brand}
+  - {id: taiwan_bolt, name: 台灣Bolt, aliases: [Bolt], kind: brand}
+  - {id: national_gas, name: 全國加油, kind: brand}
+  - {id: national_ev, name: 全國特急電, kind: brand}
+  - {id: uspace, name: USPACE, kind: brand}
+  - {id: poya, name: 寶雅, kind: brand}
+  - {id: great_tree, name: 大樹藥局, kind: brand}
+  - {id: ding_ding, name: 丁丁藥局, kind: brand}
+  - {id: yo_chuan, name: 佑全保健藥妝, aliases: [佑全], kind: brand}
+  - {id: health_life, name: 健康人生藥局, kind: brand}
+  - {id: syntrend, name: 三創生活, aliases: [三創], kind: brand}
+  - {id: mahei, name: 瑪黑家居, kind: brand}
+  - {id: zara, name: ZARA, kind: brand}
+
+  - {id: kktix, name: KKTIX, kind: brand}
+  - {id: era_ticket, name: 年代售票, kind: brand}
+  - {id: kuanghong, name: 寬宏售票, kind: brand}
+  - {id: opentix, name: OPENTIX, aliases: [兩廳院], kind: brand}
+  - {id: funnow, name: FunNow, kind: brand}
+  - {id: holiday_ktv, name: 好樂迪, kind: brand}
+  - {id: oncor, name: ONCOR, kind: brand}
+  - {id: sing_go, name: "sing!go", kind: brand}
+  - {id: xiang_wenxin, name: 享溫馨, kind: brand}
+  - {id: regent_hotels, name: 晶華酒店集團, aliases: [晶華酒店, 晶英酒店, 晶泉丰旅], kind: brand}
+  - {id: yunlang, name: 雲朗觀光, aliases: [君品酒店, 雲品溫泉, 翰品酒店, 兆品酒店], kind: brand}
+  - {id: marriott_tw, name: 台灣萬豪集團, aliases: [萬豪酒店, 喜來登大飯店, 威斯汀], kind: brand}
+  - {id: lakeshore, name: 煙波國際觀光集團, aliases: [煙波], kind: brand}
+  - {id: hotel_royal, name: 老爺酒店集團, aliases: [老爺酒店, 老爺行旅], kind: brand}
+  - {id: howard_hotel, name: 福華飯店, aliases: [福華大飯店, 福華渡假], kind: brand}
+  - {id: hanlai_hotel, name: 漢來飯店, aliases: [漢來大飯店], kind: brand}
+  - {id: grand_hyatt_taipei, name: 台北君悅酒店, aliases: [君悅酒店], kind: brand}
+  - {id: intercontinental_tw, name: 洲際酒店, aliases: [高雄洲際, 勤美洲際], kind: brand}
+  - {id: mu_hotel, name: 礁溪寒沐酒店, aliases: [寒沐酒店], kind: brand}
+
+  - {id: amazon, name: Amazon, kind: brand}
+  - {id: etmall, name: 東森購物, aliases: [東森], kind: brand}
+  - {id: books_com, name: 博客來, kind: brand}
+  - {id: richart_mart, name: Richart Mart, kind: brand}
+  - {id: payeasy, name: PayEasy, kind: brand}
+  - {id: iherb, name: iHerb, kind: brand}
+  - {id: shein, name: SHEIN, kind: brand}
+  - {id: farfetch, name: Farfetch, kind: brand}
+  - {id: olive_young, name: Olive Young, kind: brand}
+  - {id: sat_knowledge, name: 知識衛星, kind: brand}
+  - {id: amazing_talker, name: Amazing Talker, kind: brand}
+  - {id: tutorabc, name: TutorABC, aliases: [Tutor ABC], kind: brand}
+  - {id: hahow, name: Hahow, kind: brand}
+  - {id: pressplay, name: PressPlay, kind: brand}
+  - {id: mycard, name: MyCard, kind: brand}
+  - {id: gamania, name: 遊戲橘子, kind: brand}
+  - {id: steam, name: Steam, kind: brand}
+  - {id: playstation, name: PlayStation, kind: brand}
+  - {id: nintendo, name: Nintendo, kind: brand}
+
+  - {id: mandarin_airlines, name: 華信航空, kind: brand}
+  - {id: uni_air, name: 立榮航空, kind: brand}
+  - {id: wowpass, name: WOWPASS, kind: brand}
+  - {id: airsim, name: AIRSIM, kind: brand}
+  - {id: king_travel, name: 行健旅行社, aliases: [行健旅遊], kind: brand}

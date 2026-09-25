@@ -1,0 +1,376 @@
+id: taishin-richart
+name: 台新 Richart
+issuer: 台新銀行
+image: catalog/cards/taishin-richart.png
+networks: [visa, mastercard]
+source: https://www.taishinbank.com.tw/TSB/personal/credit/intro/overview/future/ab46dfa7-5d88-11f1-b50f-0050568c09e3
+effective:
+  from: "2026-07-01"
+  to: "2027-12-31"
+settlement:
+  note: 指定方案以當天最後一次切換回溯整天。沒切到的消費走一般消費，保費固定 1.3%。
+  retroactive: calendar_day
+caveat: 費率是有設定台新帳戶扣繳後的數字；沒扣繳時切換刷最高 1.3%。全家和 7-ELEVEN 只算台新 Pay。指定店走外送或電商只算 3.3%。保費固定 1.3%。假日刷要另外勾「今天是國定假日」。加碼消費以永久額度加 30 萬為上限，這裡沒有計。1 點台新 Point 先按 1 元。
+flags:
+  - {id: holiday, name: 今天是國定假日}
+schemes:
+  - {id: daily, name: 天天刷}
+  - {id: chill, name: Chill刷}
+  - {id: pay, name: Pay著刷}
+  - {id: big, name: 大筆刷}
+  - {id: dining, name: 好饗刷}
+  - {id: digital, name: 數趣刷}
+  - {id: travel, name: 玩旅刷}
+  - {id: holiday, name: 假日刷}
+switches:
+  - {id: daily, max: 1, period: calendar_day, actions: [change_scheme]}
+groups:
+  no_reward: [seven_eleven, family_mart, hi_life, ok_mart, tax]
+  chill_10:
+    - zhanji
+    - wancook
+    - haidilao
+    - uma_yakiniku
+    - cha_liu
+    - shinchon
+    - yakiniku_masamune
+    - tansuo_mali
+    - jitang_uncle
+    - gonna
+    - brun
+    - cafe_acme
+    - antipodean
+    - second_floor
+    - the_diner
+    - fake_sober
+    - draft_land
+    - taihu_brew
+    - abv
+    - bar_tcrc
+    - bar_home
+    - phowa
+    - moonrock
+    - taiwan_driver
+    - motodomo
+    - fifty_lan
+    - de_zheng
+    - wu_tong
+    - gui_ji
+    - ug_tea
+    - ding_ge
+    - cafen
+    - arabica
+    - compose_coffee
+  chill_5:
+    - inparadise
+    - nagomi
+    - weverse
+    - k_monstar
+    - weileke
+    - five_music
+    - fairy_tree
+    - fanme
+    - nol
+    - bahamut
+    - bookwalker
+    - animate
+    - rakuten_kobo
+    - readmoo
+    - netflix
+    - disney_plus
+    - elta
+    - pinkoi
+    - haohao_bio
+    - popcare
+    - dietitian_lite
+    - vitabox
+    - myprotein
+    - urmart
+    - anytime_fitness
+    - fitness_factory
+    - world_gym
+    - hypercore
+    - kx_pilates
+    - hu_tie
+    - fit_17
+    - adidas
+    - new_balance
+    - puma
+    - onitsuka
+    - nike
+    - hoka
+    - salomon
+    - lululemon
+  chill_3: [apple_store, studio_a, dji, insta360, gopro, shopee, taobao, coupang, uber_eats]
+  pay_wallet: [taishin_pay, taishin_pay_plus, seven_eleven, family_mart]
+  pay_line: [line_pay, pluspay]
+  daily:
+    - seven_eleven
+    - family_mart
+    - carrefour
+    - le_jia_kang
+    - da_buyer
+    - donki
+    - lopia
+    - zhi_life
+    - tra
+    - thsr
+    - taiwan_taxi
+    - line_go
+    - yoxi
+    - uber
+    - taiwan_bolt
+    - cpc_gas
+    - national_gas
+    - national_ev
+    - evoasis
+    - evalue
+    - uspace
+    - mazeking
+    - poya
+    - cosmed
+    - watsons
+    - medfirst
+    - great_tree
+    - ding_ding
+    - yo_chuan
+    - health_life
+  big:
+    - shin_kong_mitsukoshi
+    - far_eastern_dept
+    - far_eastern_sogo
+    - hanshin_arena
+    - hanshin
+    - hanshin_intercontinental
+    - breeze
+    - taipei_101
+    - big_city
+    - sogo_taichung
+    - dream_mall
+    - eslite
+    - qsquare
+    - syntrend
+    - uni_style
+    - dream_plaza
+    - chungyo
+    - lalaport
+    - mitsui_outlet
+    - gloria_outlets
+    - skm_park
+    - ikea
+    - trplus
+    - hola
+    - nitori
+    - mahei
+    - uniqlo
+    - gu
+    - zara
+    - net_store
+    - lululemon
+  dining:
+    - domestic_dining
+    - zhanji
+    - wancook
+    - haidilao
+    - uma_yakiniku
+    - cha_liu
+    - shinchon
+    - yakiniku_masamune
+    - tansuo_mali
+    - jitang_uncle
+    - gonna
+    - brun
+    - cafe_acme
+    - antipodean
+    - second_floor
+    - the_diner
+    - fake_sober
+    - draft_land
+    - inparadise
+    - nagomi
+    - wowprime
+    - uber_eats
+    - foodpanda
+    - tixcraft
+    - kktix
+    - era_ticket
+    - kuanghong
+    - opentix
+    - funnow
+    - regent_hotels
+    - yunlang
+    - marriott_tw
+    - lakeshore
+    - hotel_royal
+    - howard_hotel
+    - hanlai_hotel
+    - grand_hyatt_taipei
+    - intercontinental_tw
+    - mu_hotel
+    - cashbox
+    - holiday_ktv
+    - oncor
+    - sing_go
+    - xiang_wenxin
+  digital:
+    - shopee
+    - momo
+    - coupang
+    - pchome
+    - taobao
+    - amazon
+    - etmall
+    - books_com
+    - richart_mart
+    - payeasy
+    - iherb
+    - shein
+    - farfetch
+    - olive_young
+    - sat_knowledge
+    - amazing_talker
+    - tutorabc
+    - hahow
+    - pressplay
+    - mycard
+    - gamania
+    - steam
+    - playstation
+    - nintendo
+    - netflix
+    - disney_plus
+    - chatgpt
+    - notion
+    - canva
+    - perplexity
+    - claude
+  travel:
+    - uber
+    - grab
+    - suica
+    - wowpass
+    - airsim
+    - china_airlines
+    - eva_air
+    - starlux
+    - tigerair
+    - cathay_pacific
+    - mandarin_airlines
+    - uni_air
+    - peach
+    - emirates
+    - airasia
+    - scoot
+    - jetstar
+    - singapore_air
+    - jal
+    - vietjet
+    - klook
+    - kkday
+    - agoda
+    - booking
+    - trip_com
+    - airbnb
+    - hotels
+    - expedia
+    - lion_travel
+    - eztravel
+    - set_tour
+    - cola_tour
+    - dragon_tour
+    - five_blessings
+    - hihung
+    - ezfly
+    - star_travel
+    - galilee
+    - phoenix_tour
+    - rich_travel
+    - king_travel
+rules:
+  - id: chill_10
+    label: Chill刷
+    when: {schemes: [chill], regions: [domestic], any_merchant: ["group:chill_10"]}
+    mode: instead
+    rate: 0.10
+    reward: taishin_point
+  - id: chill_5
+    label: Chill刷
+    when: {schemes: [chill], regions: [domestic], any_merchant: ["group:chill_5"]}
+    mode: instead
+    rate: 0.05
+    reward: taishin_point
+  - id: chill_3
+    label: Chill刷
+    when: {schemes: [chill], regions: [domestic], any_merchant: ["group:chill_3"]}
+    mode: instead
+    rate: 0.033
+    reward: taishin_point
+  - id: pay_wallet
+    label: Pay著刷
+    when: {schemes: [pay], any_merchant: ["group:pay_wallet"]}
+    mode: instead
+    rate: 0.038
+    reward: taishin_point
+  - id: pay_line
+    label: Pay著刷
+    when: {schemes: [pay], regions: [domestic], any_merchant: ["group:pay_line"]}
+    unless: {any_merchant: ["group:no_reward"]}
+    mode: instead
+    rate: 0.023
+    reward: taishin_point
+  - id: daily
+    label: 天天刷
+    when: {schemes: [daily], regions: [domestic], any_merchant: ["group:daily"]}
+    mode: instead
+    rate: 0.033
+    reward: taishin_point
+  - id: big
+    label: 大筆刷
+    when: {schemes: [big], regions: [domestic], any_merchant: ["group:big"]}
+    mode: instead
+    rate: 0.033
+    reward: taishin_point
+  - id: dining
+    label: 好饗刷
+    when: {schemes: [dining], regions: [domestic], any_merchant: ["group:dining"]}
+    mode: instead
+    rate: 0.033
+    reward: taishin_point
+  - id: digital
+    label: 數趣刷
+    when: {schemes: [digital], regions: [domestic], any_merchant: ["group:digital"]}
+    mode: instead
+    rate: 0.033
+    reward: taishin_point
+  - id: travel
+    label: 玩旅刷
+    when: {schemes: [travel], any_merchant: ["group:travel"]}
+    mode: instead
+    rate: 0.033
+    reward: taishin_point
+  - id: travel_overseas
+    label: 玩旅刷海外
+    when: {schemes: [travel], regions: [overseas]}
+    mode: instead
+    rate: 0.033
+    reward: taishin_point
+  - id: holiday
+    label: 假日刷
+    when: {schemes: [holiday], regions: [domestic], flags_all: [holiday]}
+    unless: {any_merchant: ["group:no_reward", insurance]}
+    mode: instead
+    rate: 0.02
+    reward: taishin_point
+  - id: insurance
+    label: 保費
+    when: {regions: [domestic], any_merchant: [insurance]}
+    mode: instead
+    rate: 0.013
+    reward: taishin_point
+  - id: general
+    kind: general
+    label: 一般消費
+    unless: {any_merchant: ["group:no_reward", insurance]}
+    mode: instead
+    rate: 0.003
+    reward: taishin_point

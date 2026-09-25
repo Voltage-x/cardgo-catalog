@@ -1,0 +1,10 @@
+version: 1
+merchants: merchants.yaml
+currencies: currencies.yaml
+cards:
+  - cards/cathay-cube.yaml
+  - cards/esun-unicard.yaml
+  - cards/sinopac-dawho.yaml
+  - cards/ctbc-linepay.yaml
+  - cards/taishin-richart.yaml
+  - cards/hsbc-travel.yaml

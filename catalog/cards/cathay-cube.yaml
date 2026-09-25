@@ -1,0 +1,231 @@
+id: cathay-cube
+name: 國泰世華 CUBE
+issuer: 國泰世華
+image: catalog/cards/cathay-cube.png
+networks: [visa, mastercard, jcb]
+source: https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/cube
+effective:
+  from: "2026-01-01"
+  to: "2026-12-31"
+settlement:
+  note: 指定方案以當天最後一次切換回溯整天。沒切到的消費走一般消費。
+  retroactive: calendar_day
+caveat: 費率依 2026 公開方案。LEVEL 2/3 的達成條件在銀行端，這裡只記你現在的等級。
+tiers:
+  - {id: l1, name: Level 1}
+  - {id: l2, name: Level 2}
+  - {id: l3, name: Level 3}
+schemes:
+  - {id: digital, name: 玩數位}
+  - {id: dining, name: 樂饗購}
+  - {id: travel, name: 趣旅行}
+  - {id: select, name: 集精選}
+  - {id: fpg, name: 台塑家}
+  - {id: fixed, name: 固定回饋, lock_until: "2026-12-31"}
+switches:
+  - {id: daily, max: 1, period: calendar_day, actions: [change_scheme]}
+groups:
+  dining:
+    - far_eastern_sogo
+    - far_eastern_garden
+    - shin_kong_mitsukoshi
+    - far_eastern_dept
+    - taipei_101
+    - bellavita
+    - breeze
+    - uni_style
+    - eslite
+    - att4fun
+    - qsquare
+    - miramar
+    - noke
+    - takashimaya
+    - lalaport
+    - honhui
+    - taimall
+    - metro_walk
+    - big_city
+    - chungyo
+    - sogo_taichung
+    - dream_mall
+    - hanshin
+    - hanshin_arena
+    - crescent
+    - citylink
+    - showtime
+    - global_mall
+    - pacific_dept
+    - gloria_outlets
+    - skm_park
+    - mitsui_outlet
+    - uber_eats
+    - foodpanda
+    - domestic_dining
+    - mcdonalds
+    - cosmed
+    - watsons
+  digital:
+    - apple_media
+    - google_play
+    - disney_plus
+    - netflix
+    - spotify
+    - youtube_premium
+    - max_streaming
+    - shopee
+    - momo
+    - pchome
+    - tree_mall
+    - coupang
+    - taobao
+    - chatgpt
+    - canva
+    - claude
+    - cursor
+    - duolingo
+    - gamma
+    - gemini
+    - notion
+    - perplexity
+    - speak
+  travel:
+    - tokyo_disney
+    - harry_potter_tokyo
+    - usj
+    - suica
+    - uber
+    - grab
+    - thsr
+    - yoxi
+    - taiwan_taxi
+    - irent
+    - hotai
+    - carplus
+    - china_airlines
+    - eva_air
+    - starlux
+    - tigerair
+    - cathay_pacific
+    - peach
+    - emirates
+    - scoot
+    - jetstar
+    - jal
+    - ana
+    - airasia
+    - united
+    - singapore_air
+    - vietjet
+    - korean_air
+    - delta
+    - turkish
+    - qatar
+    - air_france
+    - domestic_hotel
+    - hoshino
+    - disney_hotel
+    - toyoko_inn
+    - kkday
+    - klook
+    - agoda
+    - airbnb
+    - booking
+    - trip_com
+    - eztravel
+    - lion_travel
+    - cola_tour
+    - set_tour
+    - five_blessings
+    - star_travel
+    - rich_travel
+    - dragon_tour
+    - phoenix_tour
+    - ezfly
+    - ideal_tour
+    - win_tour
+    - sanhe_tour
+    - overseas_instore
+  select:
+    - upower
+    - evoasis
+    - evalue
+    - tail_charge
+    - icharging
+    - mazeking
+    - utaggo
+    - carrefour
+    - lopia
+    - cpc_gas
+    - seven_eleven
+    - family_mart
+    - ikea
+  fpg:
+    - fpg_gas
+    - taiya_gas
+    - formosa_gas
+    - smile_gas
+    - fpg_biomed
+    - chang_gung_biotech
+    - fpg_veg
+    - fpg_shop
+    - seven_eleven
+    - family_mart
+    - hi_life
+rules:
+  - id: dining
+    label: 樂饗購
+    when: {schemes: [dining], any_merchant: ["group:dining"]}
+    mode: instead
+    rate_by_tier: {l1: 0.02, l2: 0.03, l3: 0.033}
+    reward: cathay_tree_point
+  - id: digital
+    label: 玩數位
+    when: {schemes: [digital], any_merchant: ["group:digital"]}
+    mode: instead
+    rate_by_tier: {l1: 0.02, l2: 0.03, l3: 0.033}
+    reward: cathay_tree_point
+  - id: travel
+    label: 趣旅行
+    when: {schemes: [travel], any_merchant: ["group:travel"]}
+    mode: instead
+    rate_by_tier: {l1: 0.02, l2: 0.03, l3: 0.033}
+    reward: cathay_tree_point
+  - id: travel_overseas
+    label: 趣旅行海外
+    when: {schemes: [travel], regions: [overseas]}
+    mode: instead
+    rate_by_tier: {l1: 0.02, l2: 0.03, l3: 0.033}
+    reward: cathay_tree_point
+  - id: select
+    label: 集精選
+    when: {schemes: [select], any_merchant: ["group:select"]}
+    mode: instead
+    rate: 0.02
+    reward: cathay_tree_point
+  - id: fpg
+    label: 台塑家
+    when: {schemes: [fpg], any_merchant: ["group:fpg"]}
+    mode: instead
+    rate: 0.02
+    reward: cathay_tree_point
+  - id: fixed_overseas
+    label: 固定回饋海外
+    when: {schemes: [fixed], regions: [overseas]}
+    mode: instead
+    rate: 0.025
+    reward: cathay_tree_point
+  - id: fixed_general
+    kind: general
+    label: 固定回饋
+    when: {schemes: [fixed]}
+    unless: {any_merchant: [insurance]}
+    mode: instead
+    rate: 0.012
+    reward: cathay_tree_point
+  - id: general
+    kind: general
+    label: 一般消費
+    unless: {any_merchant: [utilities, insurance, tax]}
+    mode: instead
+    rate: 0.003
+    reward: cathay_tree_point
