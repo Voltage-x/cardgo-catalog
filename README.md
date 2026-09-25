@@ -6,10 +6,10 @@
 
 | 檔案 | 內容 |
 | --- | --- |
-| `catalog/index.yaml` | 版本號與檔案清單。`version` 變大，App 才會當成新版本下載。 |
-| `catalog/merchants.yaml` | 通路主檔。店名、別名集中在這裡，卡片規則只引用 `id`。 |
-| `catalog/currencies.yaml` | 回饋幣別，以及 1 單位約當多少台幣。 |
-| `catalog/cards/<id>.yaml` | 一張卡的方案、等級、通路群組與回饋規則。`source` 是當時參考的銀行公開頁。 |
+| `index.yaml` | 版本號與檔案清單。`version` 變大，App 才會當成新版本下載。 |
+| `merchants.yaml` | 通路主檔。店名、別名集中在這裡，卡片規則只引用 `id`。 |
+| `currencies.yaml` | 回饋幣別，以及 1 單位約當多少台幣。 |
+| `cards/<id>.yaml` | 一張卡的方案、等級、通路群組與回饋規則。`source` 是當時參考的銀行公開頁。 |
 
 ## 這份資料是估計
 
@@ -19,4 +19,4 @@
 
 1. 改規則、通路或新增卡片 yaml。
 2. 新店名加在 `merchants.yaml`，卡片檔只寫已有的通路 `id`。
-3. 把 `catalog/index.yaml` 的 `version` 加 1。
+3. 把 `index.yaml` 的 `version` 加 1。
