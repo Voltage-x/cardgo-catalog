@@ -2,16 +2,6 @@
 
 台灣信用卡回饋規則的開放資料。
 
-[Cardgo](https://github.com/Voltage-x/cardgo) 用這份目錄，在到店或搜尋通路時，依手上卡片的方案、等級與回饋上限，排出估計回饋。App 本體目前還沒有開源。規則、通路和點數匯率獨立放在這裡，可以單獨更新，也不綁在 App 程式裡。
-
-Cardgo 把這個 repo 掛在 `catalog/`（git submodule），並把同一份檔案打包進 App。啟動時若設定了目錄網址，會在背景讀取 `index.yaml` 的 `version`；比內建的新，就下載其餘檔案。沒有網路時沿用打包進去的那份。
-
-遠端目錄：
-
-```
-https://raw.githubusercontent.com/Voltage-x/cardgo-catalog/main/catalog
-```
-
 ## 目錄
 
 | 檔案 | 內容 |
