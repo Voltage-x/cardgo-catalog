@@ -1,6 +1,9 @@
-version: 1
+version: 2
 merchants: merchants.yaml
 currencies: currencies.yaml
+dates:
+  - dates/2026.csv
+  - dates/2027.csv
 cards:
   - cards/cathay-cube.yaml
   - cards/esun-unicard.yaml
