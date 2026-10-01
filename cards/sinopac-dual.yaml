@@ -1,0 +1,120 @@
+id: sinopac-dual
+name: 永豐幣倍
+issuer: 永豐銀行
+image: catalog/cards/sinopac-dual.png
+networks: [visa, mastercard, jcb]
+source: https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/bankcard/dual-currency-card.html
+effective:
+  from: "2026-07-01"
+  to: "2026-12-31"
+settlement:
+  note: 精選通路加碼上限依結帳日的帳單週期，三種幣別合併計算。兩項任務要自己勾。
+caveat: 國內 1%、國外 2% 無上限，保費另計 1.2%。國外回饋入外幣帳戶，這裡按等值台幣。精選通路加碼 4% 要同時完成永豐臺外幣自動扣繳加電子帳單，以及前月資產月均 10 萬或當月大戶。網購算不算國外，看帳單有沒有國外交易，這裡用你標的國內外。國外實體加碼把實體刷卡當成面對面。分期不計。
+flags:
+  - {id: linked, name: 永豐臺外幣自動扣繳＋電子帳單}
+  - {id: qualified, name: 前月資產 10 萬或當月大戶}
+groups:
+  selected:
+    - suica
+    - daikoku
+    - sugi
+    - rakuten
+    - mercari
+    - amazon
+    - iherb
+    - selfridges
+    - ebay
+    - taobao
+    - gmarket
+    - olive_young
+    - booking
+    - agoda
+    - hotels
+    - expedia
+    - trip_com
+    - airbnb
+    - klook
+    - kkday
+    - trivago
+    - asiayo
+    - autowill
+    - china_airlines
+    - eva_air
+    - starlux
+    - tigerair
+    - cathay_pacific
+    - mandarin_airlines
+    - uni_air
+    - peach
+    - emirates
+    - scoot
+    - jetstar
+    - jal
+    - ana
+    - airasia
+    - united
+    - singapore_air
+    - vietjet
+    - korean_air
+    - delta
+    - turkish
+    - qatar
+    - air_france
+    - eztravel
+    - lion_travel
+    - cola_tour
+    - set_tour
+    - five_blessings
+    - star_travel
+    - rich_travel
+    - dragon_tour
+    - phoenix_tour
+    - ezfly
+    - ideal_tour
+    - win_tour
+    - sanhe_tour
+    - find_tour
+    - galilee
+    - hihung
+    - king_travel
+rules:
+  - id: domestic
+    kind: general
+    label: 國內一般消費
+    when: {regions: [domestic]}
+    unless: {any_merchant: [insurance]}
+    mode: instead
+    rate: 0.01
+    reward: twd_cash
+  - id: overseas
+    kind: general
+    label: 國外一般消費
+    when: {regions: [overseas]}
+    unless: {any_merchant: [insurance]}
+    mode: instead
+    rate: 0.02
+    reward: twd_cash
+  - id: insurance
+    label: 保費
+    when: {any_merchant: [insurance]}
+    mode: instead
+    rate: 0.012
+    reward: twd_cash
+  - id: selected
+    label: 精選通路
+    when: {flags_all: [linked, qualified], any_merchant: ["group:selected"]}
+    mode: extra
+    rate: 0.04
+    reward: twd_cash
+    cap: {id: dual_selected, max_reward: 800, period: billing_cycle}
+  - id: selected_present
+    label: 國外實體
+    when:
+      flags_all: [linked, qualified]
+      regions: [overseas]
+      rails: [card_present]
+    unless: {any_merchant: ["group:selected", insurance]}
+    mode: extra
+    rate: 0.04
+    reward: twd_cash
+    cap: {id: dual_selected, max_reward: 800, period: billing_cycle}

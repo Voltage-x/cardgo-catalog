@@ -1,0 +1,165 @@
+id: ubot-m
+name: 聯邦 M
+issuer: 聯邦銀行
+image: catalog/cards/ubot-m.png
+networks: [mastercard]
+source: https://card.ubot.com.tw/CardDetail/cardDetail203
+effective:
+  from: "2026-01-01"
+  to: "2026-12-31"
+settlement:
+  note: 指定交通旅遊上限是日曆月，達上限後改計較低費率。電子帳單和保費分期要自己勾。
+caveat: 有電子帳單才是國內 1%、國外面對面 3%、國外非面對面 1.5%；沒有則國內 0.5%、國外 1.5%。指定交通旅遊 6% 月上限 300，達上限後有電子帳單改 1%、沒有改 0.5%。航空和國內飯店以銀行交易型態為準，這裡只用已建檔店家。英、法、德、義實體店不計一般回饋；同清單裡其他歐洲國家沒有建檔。保費 1.2% 與分期二選一，活動期間上限 1 萬元這裡沒有計。自動加值每筆 5 元、跨三場景另贈 250 元沒有計。選 Apple Pay 等支付時改算非面對面。分期交易不計。
+flags:
+  - {id: ebill, name: 電子化帳單}
+  - {id: insurance_installment, name: 已登錄保費分期}
+groups:
+  europe: [uk, france, germany, italy]
+  travel:
+    - china_airlines
+    - eva_air
+    - starlux
+    - tigerair
+    - cathay_pacific
+    - mandarin_airlines
+    - uni_air
+    - peach
+    - emirates
+    - scoot
+    - jetstar
+    - jal
+    - ana
+    - airasia
+    - united
+    - singapore_air
+    - vietjet
+    - korean_air
+    - delta
+    - turkish
+    - qatar
+    - air_france
+    - domestic_hotel
+    - booking
+    - agoda
+    - hotels
+    - expedia
+    - trip_com
+    - asiayo
+    - eztravel
+    - airbnb
+    - klook
+    - kkday
+    - funnow
+    - wanda_tong
+    - set_tour
+    - rich_travel
+    - five_blessings
+    - lion_travel
+    - phoenix_tour
+    - cola_tour
+    - tra
+    - kuo_kuang
+    - u_bus
+    - ho_hsin
+    - kamalan
+    - uber
+    - line_go
+    - yoxi
+    - taiwan_taxi
+    - metro_taxi
+    - ubot_rent
+    - hotai
+    - carplus
+rules:
+  - id: overseas_present
+    kind: general
+    label: 國外實體
+    when: {regions: [overseas], rails: [card_present], flags_all: [ebill]}
+    unless: {any_merchant: ["group:europe"]}
+    mode: instead
+    rate: 0.03
+    reward: twd_cash
+  - id: overseas
+    kind: general
+    label: 國外消費
+    when: {regions: [overseas], flags_all: [ebill]}
+    unless: {any_merchant: ["group:europe"]}
+    mode: instead
+    rate: 0.015
+    reward: twd_cash
+  - id: overseas_plain
+    kind: general
+    label: 國外消費
+    when: {regions: [overseas], flags_none: [ebill]}
+    unless: {any_merchant: ["group:europe"]}
+    mode: instead
+    rate: 0.015
+    reward: twd_cash
+  - id: domestic
+    kind: general
+    label: 國內一般消費
+    when: {regions: [domestic], flags_all: [ebill]}
+    unless: {any_merchant: [insurance]}
+    mode: instead
+    rate: 0.01
+    reward: twd_cash
+  - id: domestic_plain
+    kind: general
+    label: 國內一般消費
+    when: {regions: [domestic], flags_none: [ebill]}
+    unless: {any_merchant: [insurance]}
+    mode: instead
+    rate: 0.005
+    reward: twd_cash
+  - id: travel
+    label: 指定交通旅遊
+    when: {flags_all: [ebill], any_merchant: ["group:travel"]}
+    mode: instead
+    rate: 0.06
+    reward: twd_cash
+    cap: {id: m_travel, max_reward: 300, period: calendar_month}
+  - id: travel_after
+    label: 指定交通旅遊達上限
+    when: {flags_all: [ebill], any_merchant: ["group:travel"]}
+    mode: instead
+    rate: 0.01
+    reward: twd_cash
+  - id: travel_os
+    label: 指定交通旅遊
+    when: {flags_none: [ebill], regions: [overseas], any_merchant: ["group:travel"]}
+    mode: instead
+    rate: 0.015
+    reward: twd_cash
+    cap: {id: m_travel, max_reward: 300, period: calendar_month}
+  - id: travel_dom
+    label: 指定交通旅遊
+    when: {flags_none: [ebill], regions: [domestic], any_merchant: ["group:travel"]}
+    mode: instead
+    rate: 0.005
+    reward: twd_cash
+    cap: {id: m_travel, max_reward: 300, period: calendar_month}
+  - id: travel_after_plain
+    label: 指定交通旅遊達上限
+    when: {flags_none: [ebill], any_merchant: ["group:travel"]}
+    mode: instead
+    rate: 0.005
+    reward: twd_cash
+  - id: insurance
+    label: 保費
+    when:
+      regions: [domestic]
+      any_merchant: [insurance]
+      flags_all: [ebill]
+      flags_none: [insurance_installment]
+    mode: instead
+    rate: 0.012
+    reward: twd_cash
+  - id: insurance_plain
+    label: 保費
+    when:
+      regions: [domestic]
+      any_merchant: [insurance]
+      flags_none: [ebill, insurance_installment]
+    mode: instead
+    rate: 0.005
+    reward: twd_cash

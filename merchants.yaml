@@ -160,7 +160,7 @@ merchants:
   - {id: fpg_pay, name: 台塑石油PAY, kind: brand}
   - {id: taiya_gas, name: 台亞加油站, kind: brand}
   - {id: formosa_gas, name: 福懋加油站, kind: brand}
-  - {id: smile_gas, name: 統一速邁樂, kind: brand}
+  - {id: smile_gas, name: 統一速邁樂, aliases: [統一精工速邁樂], kind: brand}
   - {id: fpg_biomed, name: 台塑生醫, kind: brand}
   - {id: chang_gung_biotech, name: 長庚生技, kind: brand}
   - {id: fpg_veg, name: 台塑蔬菜, kind: brand}
@@ -362,3 +362,53 @@ merchants:
   - {id: wowpass, name: WOWPASS, kind: brand}
   - {id: airsim, name: AIRSIM, kind: brand}
   - {id: king_travel, name: 行健旅行社, aliases: [行健旅遊], kind: brand}
+
+  - {id: apple_pay, name: Apple Pay, kind: rail, rail: apple_pay}
+  - {id: google_pay, name: Google Pay, kind: rail, rail: google_pay}
+  - {id: samsung_pay, name: Samsung Pay, kind: rail, rail: samsung_pay}
+  - {id: garmin_pay, name: Garmin Pay, kind: rail, rail: garmin_pay}
+
+  - {id: curves, name: Curves, kind: brand}
+  - {id: johnson_health, name: 喬山健康科技, aliases: [喬山], kind: brand}
+  - {id: welltivity, name: Welltivity, kind: brand}
+  - {id: taipei_sports, name: 台北市運動中心, kind: brand}
+  - {id: new_taipei_sports, name: 新北市運動中心, kind: brand}
+  - {id: nuli, name: Nuli女力, kind: brand}
+  - {id: momentum, name: 摩曼頓, kind: brand}
+  - {id: dazn, name: DAZN, kind: brand}
+  - {id: good_liver, name: 好心肝健檢中心, aliases: [好心肝], kind: brand}
+  - {id: shin_kao_chiao, name: 新高橋藥局, kind: brand}
+
+  - {id: daikoku, name: 大國藥妝, kind: brand}
+  - {id: sugi, name: Sugi藥妝, aliases: [Sugi], kind: brand}
+  - {id: rakuten, name: Rakuten, aliases: [樂天], kind: brand}
+  - {id: mercari, name: Mercari, kind: brand}
+  - {id: selfridges, name: Selfridges, kind: brand}
+  - {id: ebay, name: eBay, kind: brand}
+  - {id: gmarket, name: Gmarket, kind: brand}
+  - {id: trivago, name: Trivago, kind: brand}
+  - {id: asiayo, name: AsiaYo, kind: brand}
+  - {id: autowill, name: 歐特儀, aliases: [松山機場停車], kind: brand}
+
+  - {id: wanda_tong, name: 萬達通, kind: brand}
+  - {id: kuo_kuang, name: 國光客運, aliases: [國光], kind: brand}
+  - {id: u_bus, name: 統聯客運, aliases: [統聯], kind: brand}
+  - {id: ho_hsin, name: 和欣客運, aliases: [和欣], kind: brand}
+  - {id: kamalan, name: 葛瑪蘭客運, aliases: [葛瑪蘭], kind: brand}
+  - {id: metro_taxi, name: 大都會計程車, aliases: [大都會], kind: brand}
+  - {id: ubot_rent, name: 聯邦租車, kind: brand}
+
+  - {id: mister_donut, name: Mister Donut, kind: brand}
+  - {id: cold_stone, name: COLD STONE, aliases: [酷聖石], kind: brand}
+  - {id: semeur, name: 聖娜, aliases: [Semeur], kind: brand}
+  - {id: mia_cbon, name: "Mia C'bon", kind: brand}
+  - {id: yahoo_shopping, name: Yahoo購物, aliases: [Yahoo拍賣], kind: brand}
+  - {id: foodomo, name: foodomo, kind: brand}
+  - {id: wan_jia_fu, name: 萬家福, kind: brand}
+  - {id: uni_bio, name: 統一生機, kind: brand}
+  - {id: ibon, name: ibon, kind: brand}
+  - {id: black_cat, name: 黑貓宅急便, aliases: [黑貓], kind: brand}
+  - {id: uni_resort, name: 統一渡假村, kind: brand}
+  - {id: w_taipei, name: 台北W飯店, kind: brand}
+  - {id: hotel_prologue, name: 台北時代寓所, aliases: [時代寓所], kind: brand}
+  - {id: twenty_one_plus, name: 21Plus, aliases: [21風味館], kind: brand}

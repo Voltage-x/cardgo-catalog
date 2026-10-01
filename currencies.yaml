@@ -5,3 +5,5 @@ currencies:
   - {id: line_points, name: LINE POINTS, twd_per_unit: 1}
   - {id: taishin_point, name: 台新Point, twd_per_unit: 1}
   - {id: hsbc_mile, name: 滙豐里程, twd_per_unit: 1}
+  - {id: sinopac_feng, name: 豐點, twd_per_unit: 1}
+  - {id: open_point, name: OPEN POINT, twd_per_unit: 1}

@@ -1,0 +1,101 @@
+id: ctbc-uniopen
+name: 中信 uniopen
+issuer: 中國信託
+image: catalog/cards/ctbc-uniopen.png
+networks: [mastercard]
+source: https://www.ctbcbank.com/twrbo/zh_tw/cc_index/cc_product/cc_introduction_index/C_uniopen.html
+effective:
+  from: "2026-09-01"
+  to: "2026-12-31"
+settlement:
+  note: 統一集團、踩點、icash Pay、國外實體加碼的上限都是日曆月。踩點品牌數要自己選。
+caveat: 1 OPEN POINT 先按 1 元，要在中信 App 連結 uniopen 會員才入點。踩點要單筆滿 199 且為不同品牌，這裡不檢查金額。icash Pay 未滿 199 也會算出 4%。選 icash Pay 當支付時只算支付加碼。國外實體加碼把實體刷卡，以及 Apple Pay、Google Pay、Samsung Pay 當成面對面。不回饋項目先排除水電、電信、稅費、保費。聖德科斯、DUSKIN、建設案這類較少見的統一集團店沒有建檔。設在百貨裡的專櫃可能對不到店名。
+tiers:
+  - {id: none, name: 未達踩點}
+  - {id: b2, name: 2 品牌}
+  - {id: b3, name: 3 品牌}
+  - {id: b4, name: 4 品牌}
+  - {id: b5, name: 5 品牌以上}
+groups:
+  excluded: [utilities, telecom, tax, insurance]
+  uni:
+    - seven_eleven
+    - cosmed
+    - dream_mall
+    - uni_style
+    - dream_plaza
+    - starbucks
+    - twenty_one_plus
+    - mister_donut
+    - cold_stone
+    - semeur
+    - wan_jia_fu
+    - le_jia_kang
+    - mia_cbon
+    - yahoo_shopping
+    - books_com
+    - smile_gas
+    - foodomo
+    - uni_bio
+    - ibon
+    - black_cat
+    - uni_resort
+    - w_taipei
+    - hotel_prologue
+rules:
+  - id: domestic
+    kind: general
+    label: 國內一般消費
+    when: {regions: [domestic]}
+    unless: {any_merchant: ["group:excluded"]}
+    mode: instead
+    rate: 0.01
+    reward: open_point
+  - id: overseas
+    kind: general
+    label: 國外一般消費
+    when: {regions: [overseas]}
+    unless: {any_merchant: ["group:excluded"]}
+    mode: instead
+    rate: 0.02
+    reward: open_point
+  - id: uni
+    label: 統一企業集團
+    when: {any_merchant: ["group:uni"]}
+    mode: extra
+    rate: 0.02
+    reward: open_point
+    cap: {id: uniopen_uni, max_reward: 500, period: calendar_month}
+  - id: step
+    label: 統一踩點
+    when: {tiers: [b2, b3, b4, b5], any_merchant: ["group:uni"]}
+    mode: extra
+    rate_by_tier: {b2: 0.01, b3: 0.02, b4: 0.03, b5: 0.04}
+    reward: open_point
+    cap: {id: uniopen_step, max_reward: 500, period: calendar_month}
+  - id: icash
+    label: icash Pay
+    when: {any_merchant: [icash_pay]}
+    mode: extra
+    rate: 0.04
+    reward: open_point
+    cap: {id: uniopen_icash, max_reward: 150, period: calendar_month}
+  - id: overseas_present
+    label: 國外實體
+    when:
+      regions: [overseas]
+      rails: [card_present, apple_pay, google_pay, samsung_pay]
+    unless: {any_merchant: ["group:uni", "group:excluded"]}
+    mode: extra
+    rate: 0.01
+    reward: open_point
+  - id: overseas_boost
+    label: 國外實體加碼
+    when:
+      regions: [overseas]
+      rails: [card_present, apple_pay, google_pay, samsung_pay]
+    unless: {any_merchant: ["group:uni", "group:excluded"]}
+    mode: extra
+    rate: 0.08
+    reward: open_point
+    cap: {id: uniopen_overseas, max_reward: 500, period: calendar_month}

@@ -1,0 +1,75 @@
+id: sinopac-sport
+name: 永豐 SPORT
+issuer: 永豐銀行
+image: catalog/cards/sinopac-sport.png
+networks: [visa, mastercard, jcb]
+source: https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/bankcard/sportcard.html
+effective:
+  from: "2026-07-01"
+  to: "2026-12-31"
+settlement:
+  note: 基本、運動、指定通路都從每月 1 日算到月底。運動達標和自動扣繳要自己勾，app 不會對運動數據。
+caveat: 1 豐點先按 1 元；沒在大咖設折抵時，銀行會改記成紅利。沒下載大咖並串接運動數據就沒有回饋。運動 1% 和指定通路 3% 要當月 1 萬大卡或 Apple Watch 圓滿畫圈 10 次，且回饋前設好永豐或京城自動扣繳。電子或行動帳單把基本 0.3% 加到 1%。保費不計，分期不計。選行動支付時只認支付，不會再加店家那一檔。
+flags:
+  - {id: ebill, name: 電子或行動帳單}
+  - {id: sport, name: 當月運動達標}
+  - {id: autodebit, name: 永豐或京城自動扣繳}
+groups:
+  channel:
+    - apple_pay
+    - google_pay
+    - samsung_pay
+    - garmin_pay
+    - world_gym
+    - fitness_factory
+    - curves
+    - johnson_health
+    - welltivity
+    - taipei_sports
+    - new_taipei_sports
+    - nuli
+    - momentum
+    - anytime_fitness
+    - hypercore
+    - dazn
+    - watsons
+    - cosmed
+    - poya
+    - good_liver
+    - medfirst
+    - great_tree
+    - ding_ding
+    - shin_kao_chiao
+    - apple_media
+    - google_play
+    - nintendo
+    - playstation
+    - steam
+rules:
+  - id: base
+    kind: general
+    label: 一般消費
+    unless: {any_merchant: [insurance]}
+    mode: instead
+    rate: 0.003
+    reward: sinopac_feng
+  - id: ebill
+    label: 電子帳單
+    when: {flags_all: [ebill]}
+    unless: {any_merchant: [insurance]}
+    mode: extra
+    rate: 0.007
+    reward: sinopac_feng
+  - id: sport
+    label: 運動獎勵
+    when: {flags_all: [sport, autodebit]}
+    unless: {any_merchant: [insurance]}
+    mode: extra
+    rate: 0.01
+    reward: sinopac_feng
+  - id: channel
+    label: 指定支付通路
+    when: {flags_all: [sport, autodebit], any_merchant: ["group:channel"]}
+    mode: extra
+    rate: 0.03
+    reward: sinopac_feng

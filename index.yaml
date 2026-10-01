@@ -1,4 +1,4 @@
-version: 3
+version: 4
 merchants: merchants.yaml
 currencies: currencies.yaml
 dates:
@@ -11,3 +11,7 @@ cards:
   - cards/ctbc-linepay.yaml
   - cards/taishin-richart.yaml
   - cards/hsbc-travel.yaml
+  - cards/sinopac-sport.yaml
+  - cards/sinopac-dual.yaml
+  - cards/ubot-m.yaml
+  - cards/ctbc-uniopen.yaml
