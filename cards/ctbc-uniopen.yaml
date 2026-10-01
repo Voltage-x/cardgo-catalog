@@ -9,7 +9,7 @@ effective:
   to: "2026-12-31"
 settlement:
   note: 統一集團、踩點、icash Pay、國外實體加碼的上限都是日曆月。踩點品牌數要自己選。
-caveat: 1 OPEN POINT 先按 1 元，要在中信 App 連結 uniopen 會員才入點。踩點要單筆滿 199 且為不同品牌，這裡不檢查金額。icash Pay 未滿 199 也會算出 4%。選 icash Pay 當支付時只算支付加碼。國外實體加碼把實體刷卡，以及 Apple Pay、Google Pay、Samsung Pay 當成面對面。不回饋項目先排除水電、電信、稅費、保費。聖德科斯、DUSKIN、建設案這類較少見的統一集團店沒有建檔。設在百貨裡的專櫃可能對不到店名。
+caveat: 1 OPEN POINT 先按 1 元，要在中信 App 連結 uniopen 會員才入點。踩點要單筆滿 199 且為不同品牌，這裡不檢查金額。icash Pay 未滿 199 也會算出 4%。選 icash Pay 當支付時只算支付加碼。國外實體加碼把實體刷卡，以及 Apple Pay、Google Pay、Samsung Pay 當成面對面。不回饋項目先排除水電、電信、稅費、保費。萬家福線上商城不算。設在百貨裡的專櫃可能對不到店名。
 tiers:
   - {id: none, name: 未達踩點}
   - {id: b2, name: 2 品牌}
@@ -24,6 +24,9 @@ groups:
     - dream_mall
     - uni_style
     - dream_plaza
+    - unikcy
+    - linglang
+    - being_spa
     - starbucks
     - twenty_one_plus
     - mister_donut
@@ -34,14 +37,23 @@ groups:
     - mia_cbon
     - yahoo_shopping
     - books_com
+    - santecos
+    - uni_bio
     - smile_gas
     - foodomo
-    - uni_bio
-    - ibon
+    - duskin
     - black_cat
+    - ibon
     - uni_resort
     - w_taipei
     - hotel_prologue
+    - youyou_travel
+    - cupicho
+    - uni_dream_park
+    - uni_mall
+    - uni_milk
+    - prince_construction
+    - prince_travel
 rules:
   - id: domestic
     kind: general

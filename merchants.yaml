@@ -22,7 +22,7 @@ merchants:
   - {id: taipei_101, name: 台北101, kind: brand}
   - {id: bellavita, name: BELLAVITA, kind: brand}
   - {id: breeze, name: 微風百貨, aliases: [微風廣場, 微風南山], kind: brand}
-  - {id: uni_style, name: 統一時代百貨, aliases: [統一時代], kind: brand}
+  - {id: uni_style, name: 統一時代百貨, aliases: [統一時代, 統一時代百貨台北店], kind: brand}
   - {id: dream_plaza, name: DREAM PLAZA, kind: brand}
   - {id: eslite, name: 誠品生活, aliases: [誠品], kind: brand}
   - {id: att4fun, name: ATT 4 FUN, kind: brand}
@@ -37,7 +37,7 @@ merchants:
   - {id: big_city, name: Big City遠東巨城, aliases: [遠東巨城], kind: brand}
   - {id: chungyo, name: 中友百貨, kind: brand}
   - {id: sogo_taichung, name: 廣三SOGO, kind: brand}
-  - {id: dream_mall, name: 夢時代, aliases: [南紡購物中心], kind: brand}
+  - {id: dream_mall, name: 夢時代, aliases: [夢時代購物中心, 統一時代百貨高雄店, 南紡購物中心], kind: brand}
   - {id: hanshin, name: 漢神百貨, kind: brand}
   - {id: hanshin_arena, name: 漢神巨蛋, kind: brand}
   - {id: hanshin_intercontinental, name: 台中漢神洲際購物廣場, kind: brand}
@@ -412,3 +412,15 @@ merchants:
   - {id: w_taipei, name: 台北W飯店, kind: brand}
   - {id: hotel_prologue, name: 台北時代寓所, aliases: [時代寓所], kind: brand}
   - {id: twenty_one_plus, name: 21Plus, aliases: [21風味館], kind: brand}
+  - {id: unikcy, name: UNIKCY, kind: brand}
+  - {id: linglang, name: 玲廊滿藝, kind: brand}
+  - {id: being_spa, name: BEING spa, kind: brand}
+  - {id: santecos, name: 聖德科斯, kind: brand}
+  - {id: duskin, name: DUSKIN, kind: brand}
+  - {id: youyou_travel, name: 統一友友旅行社, kind: brand}
+  - {id: cupicho, name: CupiCho, kind: brand}
+  - {id: uni_dream_park, name: 統一夢公園, kind: brand}
+  - {id: uni_mall, name: 統一超商商場, aliases: [統一商場], kind: brand}
+  - {id: uni_milk, name: 統一行動牛奶車, kind: brand}
+  - {id: prince_construction, name: 太子建設, kind: brand}
+  - {id: prince_travel, name: 太子文旅, kind: brand}
