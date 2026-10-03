@@ -1,4 +1,4 @@
-version: 5
+version: 6
 merchants: merchants.yaml
 currencies: currencies.yaml
 dates:

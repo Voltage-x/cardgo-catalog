@@ -10,7 +10,7 @@ effective:
 settlement:
   note: 指定方案以當天最後一次切換回溯整天。沒切到的消費走一般消費。
   retroactive: calendar_day
-caveat: 費率依 2026 公開方案。LEVEL 2/3 的達成條件在銀行端，這裡只記你現在的等級。
+caveat: 費率依 2026 公開方案。LEVEL 2/3 的達成條件在銀行端，這裡只記你現在的等級。秋日遊的領券加碼、Klook 指定日本商品 5% 沒有計。日本實體 3.5% 要選「日本」，不含其他國家。全支付只算選了全支付的國內消費。
 tiers:
   - {id: l1, name: Level 1}
   - {id: l2, name: Level 2}
@@ -21,6 +21,8 @@ schemes:
   - {id: travel, name: 趣旅行}
   - {id: select, name: 集精選}
   - {id: fpg, name: 台塑家}
+  - {id: pxpay, name: 全支付}
+  - {id: autumn, name: 秋日遊}
   - {id: fixed, name: 固定回饋, lock_until: "2026-12-31"}
 switches:
   - {id: daily, max: 1, period: calendar_day, actions: [change_scheme]}
@@ -171,6 +173,92 @@ groups:
     - seven_eleven
     - family_mart
     - hi_life
+  autumn_8:
+    - jitang_sang
+    - orange_shabu
+    - extension_one
+    - asatan
+    - hatsuo
+    - hatsuo_teppan
+    - tsukuru
+    - jian_sushi
+    - samurai_yakiniku
+    - bon_yakiniku
+    - genichi
+    - torien
+    - sumika
+    - yamazaki
+    - narikura
+    - hands_lalaport
+  autumn_5:
+    - ming_yao
+    - donki
+    - zheng_xian
+    - zheng_xian_plus
+    - sukiya
+    - pizza_hut
+    - qiandu
+    - komeda
+    - xpark
+    - jr_east_hotel
+    - mu_hotel
+    - solaria
+    - okura_taipei
+    - kagaya
+    - united_arrows
+    - expedia
+    - hotels
+    - pokemon_center
+    - sanrio
+    - kiddy_land
+    - alpen
+    - abc_mart
+    - three_coins
+    - loft
+    - tabelog
+    - tablecheck
+    - omakase
+  autumn_4:
+    - narita_dfs
+    - kix_dfs
+    - chitose_dfs
+    - fukuoka_dfs
+  autumn_35:
+    - japan
+    - suica
+    - mos_burger
+    - sushiro
+    - nihon_drug
+    - far_eastern_sogo
+    - far_eastern_garden
+    - cathay_pacific
+    - tigerair
+    - agoda
+    - kkday
+    - eztravel
+    - cola_tour
+    - set_tour
+    - club_med
+    - edion
+    - daimaru_fukuoka
+    - divercity
+    - bic_camera
+    - hankyu_hanshin
+    - lucua
+    - takeya
+    - daikoku
+    - matsukiyo
+    - sugi
+    - tsuruha
+    - sapporo_drug
+    - go_taxi
+  autumn_3:
+    - mitsui_outlet
+    - lalaport
+    - uniqlo
+    - gu
+    - klook
+    - trip_com
 rules:
   - id: dining
     label: 樂饗購
@@ -221,6 +309,66 @@ rules:
     unless: {any_merchant: [insurance]}
     mode: instead
     rate: 0.012
+    reward: cathay_tree_point
+  - id: pxpay
+    label: 全支付
+    when: {schemes: [pxpay], regions: [domestic], rails: [pxpay], any_merchant: [pxpay]}
+    mode: instead
+    rate: 0.02
+    reward: cathay_tree_point
+  - id: autumn_8
+    label: 秋日遊
+    effective:
+      from: "2026-10-01"
+      to: "2026-11-30"
+    when: {schemes: [autumn], any_merchant: ["group:autumn_8"]}
+    mode: instead
+    rate: 0.08
+    reward: cathay_tree_point
+  - id: autumn_5
+    label: 秋日遊
+    effective:
+      from: "2026-10-01"
+      to: "2026-11-30"
+    when: {schemes: [autumn], any_merchant: ["group:autumn_5"]}
+    mode: instead
+    rate: 0.05
+    reward: cathay_tree_point
+  - id: autumn_uniqlo_jp
+    label: 秋日遊
+    effective:
+      from: "2026-10-01"
+      to: "2026-11-30"
+    when: {schemes: [autumn], regions: [overseas], any_merchant: [uniqlo]}
+    mode: instead
+    rate: 0.05
+    reward: cathay_tree_point
+  - id: autumn_4
+    label: 秋日遊
+    effective:
+      from: "2026-10-01"
+      to: "2026-11-30"
+    when: {schemes: [autumn], any_merchant: ["group:autumn_4"]}
+    mode: instead
+    rate: 0.04
+    reward: cathay_tree_point
+  - id: autumn_35
+    label: 秋日遊
+    effective:
+      from: "2026-10-01"
+      to: "2026-11-30"
+    when: {schemes: [autumn], any_merchant: ["group:autumn_35"]}
+    mode: instead
+    rate: 0.035
+    reward: cathay_tree_point
+  - id: autumn_3
+    label: 秋日遊
+    effective:
+      from: "2026-10-01"
+      to: "2026-11-30"
+    when: {schemes: [autumn], any_merchant: ["group:autumn_3"]}
+    mode: instead
+    rate: 0.03
     reward: cathay_tree_point
   - id: general
     kind: general

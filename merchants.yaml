@@ -424,3 +424,59 @@ merchants:
   - {id: uni_milk, name: 統一行動牛奶車, kind: brand}
   - {id: prince_construction, name: 太子建設, kind: brand}
   - {id: prince_travel, name: 太子文旅, kind: brand}
+
+  - {id: jitang_sang, name: 雞湯桑, kind: brand}
+  - {id: orange_shabu, name: 橘色涮涮屋, aliases: [橘色], kind: brand}
+  - {id: extension_one, name: Extension 1 by橘色, aliases: [Extension 1], kind: brand}
+  - {id: asatan, name: 朝炭, kind: brand}
+  - {id: hatsuo, name: 初魚鮨, aliases: [初魚], kind: brand}
+  - {id: hatsuo_teppan, name: 初魚鉄板料亭, kind: brand}
+  - {id: tsukuru, name: 作天麩羅, kind: brand}
+  - {id: jian_sushi, name: 濟安鮨, kind: brand}
+  - {id: samurai_yakiniku, name: 侍燒肉, kind: brand}
+  - {id: bon_yakiniku, name: 梵燒肉, kind: brand}
+  - {id: genichi, name: 元一天婦羅, kind: brand}
+  - {id: torien, name: 鳥苑, kind: brand}
+  - {id: sumika, name: 燒鳥すみか, kind: brand}
+  - {id: yamazaki, name: 山崎, kind: brand}
+  - {id: narikura, name: 成蔵, kind: brand}
+  - {id: hands_lalaport, name: HANDS南港LaLaport, aliases: [台隆手創館], kind: brand}
+  - {id: ming_yao, name: 明曜百貨, aliases: [明曜], kind: brand}
+  - {id: zheng_xian, name: 爭鮮, kind: brand}
+  - {id: zheng_xian_plus, name: 爭鮮PLUS, kind: brand}
+  - {id: sukiya, name: すき家, aliases: [SUKIYA], kind: brand}
+  - {id: pizza_hut, name: 必勝客, kind: brand}
+  - {id: qiandu, name: 錢都日式涮涮鍋, aliases: [錢都], kind: brand}
+  - {id: xpark, name: Xpark, kind: brand}
+  - {id: jr_east_hotel, name: JR東日本大飯店台北, aliases: [JR東日本大飯店], kind: brand}
+  - {id: solaria, name: 索拉利亞西鐵飯店, kind: brand}
+  - {id: okura_taipei, name: 大倉久和, aliases: [台北大倉久和], kind: brand}
+  - {id: kagaya, name: 日勝生加賀屋, aliases: [加賀屋], kind: brand}
+  - {id: united_arrows, name: UNITED ARROWS, kind: brand}
+  - {id: nihon_drug, name: 日藥本舖, kind: brand}
+  - {id: club_med, name: Club Med, kind: brand}
+  - {id: pokemon_center, name: 寶可夢中心, kind: brand, region: overseas}
+  - {id: sanrio, name: 三麗鷗, aliases: [SANRIO], kind: brand, region: overseas}
+  - {id: kiddy_land, name: KIDDY LAND, kind: brand, region: overseas}
+  - {id: alpen, name: Alpen, kind: brand, region: overseas}
+  - {id: abc_mart, name: ABC-MART, kind: brand, region: overseas}
+  - {id: three_coins, name: 3COINS, kind: brand, region: overseas}
+  - {id: loft, name: Loft, kind: brand, region: overseas}
+  - {id: tabelog, name: Tabelog, kind: brand, region: overseas}
+  - {id: tablecheck, name: TableCheck, kind: brand, region: overseas}
+  - {id: omakase, name: OMAKASE, kind: brand, region: overseas}
+  - {id: narita_dfs, name: 成田機場免稅店, kind: brand, region: overseas}
+  - {id: kix_dfs, name: 關西機場免稅店, kind: brand, region: overseas}
+  - {id: chitose_dfs, name: 新千歲機場免稅店, kind: brand, region: overseas}
+  - {id: fukuoka_dfs, name: 福岡機場免稅店, kind: brand, region: overseas}
+  - {id: edion, name: 愛電王, kind: brand, region: overseas}
+  - {id: daimaru_fukuoka, name: 大丸福岡天神, aliases: [大丸福岡], kind: brand, region: overseas}
+  - {id: divercity, name: 台場DiverCity, aliases: [DiverCity], kind: brand, region: overseas}
+  - {id: bic_camera, name: BicCamera, kind: brand, region: overseas}
+  - {id: hankyu_hanshin, name: 阪急阪神百貨, aliases: [阪急阪神], kind: brand, region: overseas}
+  - {id: lucua, name: LUCUA大阪, aliases: [LUCUA], kind: brand, region: overseas}
+  - {id: takeya, name: 多慶屋, kind: brand, region: overseas}
+  - {id: matsukiyo, name: 松本清, kind: brand, region: overseas}
+  - {id: tsuruha, name: 鶴羽藥妝, aliases: [鶴羽], kind: brand, region: overseas}
+  - {id: sapporo_drug, name: 札幌藥妝, kind: brand, region: overseas}
+  - {id: go_taxi, name: GO Taxi, kind: brand, region: overseas}
