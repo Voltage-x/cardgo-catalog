@@ -1,4 +1,5 @@
 version: 6
+format: 2
 merchants: merchants.yaml
 currencies: currencies.yaml
 dates:

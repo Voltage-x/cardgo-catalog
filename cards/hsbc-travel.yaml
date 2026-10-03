@@ -1,8 +1,8 @@
 id: hsbc-travel
 name: 滙豐旅人卡
 issuer: 滙豐銀行
-image: catalog/cards/hsbc-travel.png
 networks: [visa]
+reward: hsbc_mile
 source: https://shop.hsbc.com.tw/installments/creditcard/rewards/info.html
 settlement:
   note: 海外指帳單有列國外交易手續費的消費。沒有通路限制，也沒有回饋上限。
@@ -15,12 +15,8 @@ rules:
   - id: domestic
     label: 國內消費
     when: {regions: [domestic]}
-    mode: instead
     rate_by_tier: {infinite: 0.0166, signature: 0.0166, light: 0.015}
-    reward: hsbc_mile
   - id: overseas
     label: 海外消費
     when: {regions: [overseas]}
-    mode: instead
     rate_by_tier: {infinite: 0.03, signature: 0.02, light: 0.015}
-    reward: hsbc_mile

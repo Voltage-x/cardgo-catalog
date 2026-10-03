@@ -96,26 +96,26 @@ merchants:
   - {id: irent, name: iRent, kind: brand}
   - {id: hotai, name: 和運租車, kind: brand}
   - {id: carplus, name: 格上租車, kind: brand}
-  - {id: china_airlines, name: 中華航空, kind: brand}
-  - {id: eva_air, name: 長榮航空, kind: brand}
-  - {id: starlux, name: 星宇航空, kind: brand}
-  - {id: tigerair, name: 台灣虎航, kind: brand}
-  - {id: cathay_pacific, name: 國泰航空, kind: brand}
-  - {id: peach, name: 樂桃航空, kind: brand}
-  - {id: emirates, name: 阿聯酋航空, kind: brand}
-  - {id: scoot, name: 酷航, kind: brand}
-  - {id: jetstar, name: 捷星航空, kind: brand}
-  - {id: jal, name: 日本航空, aliases: [JAL], kind: brand}
-  - {id: ana, name: ANA全日空, aliases: [ANA], kind: brand}
-  - {id: airasia, name: 亞洲航空, aliases: [AirAsia], kind: brand}
-  - {id: united, name: 聯合航空, kind: brand}
-  - {id: singapore_air, name: 新加坡航空, kind: brand}
-  - {id: vietjet, name: 越捷航空, kind: brand}
-  - {id: korean_air, name: 大韓航空, kind: brand}
-  - {id: delta, name: 達美航空, kind: brand}
-  - {id: turkish, name: 土耳其航空, kind: brand}
-  - {id: qatar, name: 卡達航空, kind: brand}
-  - {id: air_france, name: 法國航空, kind: brand}
+  - {id: china_airlines, name: 中華航空, kind: brand, tags: [airline]}
+  - {id: eva_air, name: 長榮航空, kind: brand, tags: [airline]}
+  - {id: starlux, name: 星宇航空, kind: brand, tags: [airline]}
+  - {id: tigerair, name: 台灣虎航, kind: brand, tags: [airline]}
+  - {id: cathay_pacific, name: 國泰航空, kind: brand, tags: [airline]}
+  - {id: peach, name: 樂桃航空, kind: brand, tags: [airline]}
+  - {id: emirates, name: 阿聯酋航空, kind: brand, tags: [airline]}
+  - {id: scoot, name: 酷航, kind: brand, tags: [airline]}
+  - {id: jetstar, name: 捷星航空, kind: brand, tags: [airline]}
+  - {id: jal, name: 日本航空, aliases: [JAL], kind: brand, tags: [airline]}
+  - {id: ana, name: ANA全日空, aliases: [ANA], kind: brand, tags: [airline]}
+  - {id: airasia, name: 亞洲航空, aliases: [AirAsia], kind: brand, tags: [airline]}
+  - {id: united, name: 聯合航空, kind: brand, tags: [airline]}
+  - {id: singapore_air, name: 新加坡航空, kind: brand, tags: [airline]}
+  - {id: vietjet, name: 越捷航空, kind: brand, tags: [airline]}
+  - {id: korean_air, name: 大韓航空, kind: brand, tags: [airline]}
+  - {id: delta, name: 達美航空, kind: brand, tags: [airline]}
+  - {id: turkish, name: 土耳其航空, kind: brand, tags: [airline]}
+  - {id: qatar, name: 卡達航空, kind: brand, tags: [airline]}
+  - {id: air_france, name: 法國航空, kind: brand, tags: [airline]}
   - {id: hoshino, name: 星野集團, kind: brand}
   - {id: disney_hotel, name: 迪士尼飯店, kind: brand}
   - {id: toyoko_inn, name: 東橫INN, kind: brand}
@@ -357,8 +357,8 @@ merchants:
   - {id: playstation, name: PlayStation, kind: brand}
   - {id: nintendo, name: Nintendo, kind: brand}
 
-  - {id: mandarin_airlines, name: 華信航空, kind: brand}
-  - {id: uni_air, name: 立榮航空, kind: brand}
+  - {id: mandarin_airlines, name: 華信航空, kind: brand, tags: [airline]}
+  - {id: uni_air, name: 立榮航空, kind: brand, tags: [airline]}
   - {id: wowpass, name: WOWPASS, kind: brand}
   - {id: airsim, name: AIRSIM, kind: brand}
   - {id: king_travel, name: 行健旅行社, aliases: [行健旅遊], kind: brand}

@@ -1,8 +1,8 @@
 id: taishin-richart
 name: 台新 Richart
 issuer: 台新銀行
-image: catalog/cards/taishin-richart.png
 networks: [visa, mastercard]
+reward: taishin_point
 source: https://www.taishinbank.com.tw/TSB/personal/credit/intro/overview/future/ab46dfa7-5d88-11f1-b50f-0050568c09e3
 effective:
   from: "2026-07-01"
@@ -286,97 +286,63 @@ groups:
 rules:
   - id: chill_10
     label: Chill刷
-    effective:
-      from: "2026-07-08"
-      to: "2026-12-31"
+    effective: &chill {from: "2026-07-08", to: "2026-12-31"}
     when: {schemes: [chill], regions: [domestic], any_merchant: ["group:chill_10"]}
-    mode: instead
     rate: 0.10
-    reward: taishin_point
   - id: chill_5
     label: Chill刷
-    effective:
-      from: "2026-07-08"
-      to: "2026-12-31"
+    effective: *chill
     when: {schemes: [chill], regions: [domestic], any_merchant: ["group:chill_5"]}
-    mode: instead
     rate: 0.05
-    reward: taishin_point
   - id: chill_3
     label: Chill刷
-    effective:
-      from: "2026-07-08"
-      to: "2026-12-31"
+    effective: *chill
     when: {schemes: [chill], regions: [domestic], any_merchant: ["group:chill_3"]}
-    mode: instead
     rate: 0.033
-    reward: taishin_point
   - id: pay_wallet
     label: Pay著刷
     when: {schemes: [pay], rails: [taishin_pay, taishin_pay_plus], any_merchant: ["group:pay_wallet"]}
-    mode: instead
     rate: 0.038
-    reward: taishin_point
   - id: pay_line
     label: Pay著刷
     when: {schemes: [pay], regions: [domestic], rails: [line_pay, pluspay], any_merchant: ["group:pay_line"]}
     unless: {any_merchant: ["group:no_reward"]}
-    mode: instead
     rate: 0.023
-    reward: taishin_point
   - id: daily
     label: 天天刷
     when: {schemes: [daily], regions: [domestic], any_merchant: ["group:daily"]}
-    mode: instead
     rate: 0.033
-    reward: taishin_point
   - id: big
     label: 大筆刷
     when: {schemes: [big], regions: [domestic], any_merchant: ["group:big"]}
-    mode: instead
     rate: 0.033
-    reward: taishin_point
   - id: dining
     label: 好饗刷
     when: {schemes: [dining], regions: [domestic], any_merchant: ["group:dining"]}
-    mode: instead
     rate: 0.033
-    reward: taishin_point
   - id: digital
     label: 數趣刷
     when: {schemes: [digital], regions: [domestic], any_merchant: ["group:digital"]}
-    mode: instead
     rate: 0.033
-    reward: taishin_point
   - id: travel
     label: 玩旅刷
     when: {schemes: [travel], any_merchant: ["group:travel"]}
-    mode: instead
     rate: 0.033
-    reward: taishin_point
   - id: travel_overseas
     label: 玩旅刷海外
     when: {schemes: [travel], regions: [overseas]}
-    mode: instead
     rate: 0.033
-    reward: taishin_point
   - id: holiday
     label: 假日刷
     when: {schemes: [holiday], regions: [domestic], flags_all: [holiday]}
     unless: {any_merchant: ["group:no_reward", insurance]}
-    mode: instead
     rate: 0.02
-    reward: taishin_point
   - id: insurance
     label: 保費
     when: {regions: [domestic], any_merchant: [insurance]}
-    mode: instead
     rate: 0.013
-    reward: taishin_point
   - id: general
     kind: general
     label: 一般消費
     unless: {any_merchant: ["group:no_reward", insurance]}
-    mode: instead
     rate: 0.003
-    reward: taishin_point

@@ -1,8 +1,8 @@
 id: cathay-cube
 name: 國泰世華 CUBE
 issuer: 國泰世華
-image: catalog/cards/cathay-cube.png
 networks: [visa, mastercard, jcb]
+reward: cathay_tree_point
 source: https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/cube
 effective:
   from: "2026-01-01"
@@ -263,117 +263,73 @@ rules:
   - id: dining
     label: 樂饗購
     when: {schemes: [dining], any_merchant: ["group:dining"]}
-    mode: instead
-    rate_by_tier: {l1: 0.02, l2: 0.03, l3: 0.033}
-    reward: cathay_tree_point
+    rate_by_tier: &level {l1: 0.02, l2: 0.03, l3: 0.033}
   - id: digital
     label: 玩數位
     when: {schemes: [digital], any_merchant: ["group:digital"]}
-    mode: instead
-    rate_by_tier: {l1: 0.02, l2: 0.03, l3: 0.033}
-    reward: cathay_tree_point
+    rate_by_tier: *level
   - id: travel
     label: 趣旅行
     when: {schemes: [travel], any_merchant: ["group:travel"]}
-    mode: instead
-    rate_by_tier: {l1: 0.02, l2: 0.03, l3: 0.033}
-    reward: cathay_tree_point
+    rate_by_tier: *level
   - id: travel_overseas
     label: 趣旅行海外
     when: {schemes: [travel], regions: [overseas]}
-    mode: instead
-    rate_by_tier: {l1: 0.02, l2: 0.03, l3: 0.033}
-    reward: cathay_tree_point
+    rate_by_tier: *level
   - id: select
     label: 集精選
     when: {schemes: [select], any_merchant: ["group:select"]}
-    mode: instead
     rate: 0.02
-    reward: cathay_tree_point
   - id: fpg
     label: 台塑家
     when: {schemes: [fpg], any_merchant: ["group:fpg"]}
-    mode: instead
     rate: 0.02
-    reward: cathay_tree_point
   - id: fixed_overseas
     label: 固定回饋海外
     when: {schemes: [fixed], regions: [overseas]}
-    mode: instead
     rate: 0.025
-    reward: cathay_tree_point
   - id: fixed_general
     kind: general
     label: 固定回饋
     when: {schemes: [fixed]}
     unless: {any_merchant: [insurance]}
-    mode: instead
     rate: 0.012
-    reward: cathay_tree_point
   - id: pxpay
     label: 全支付
     when: {schemes: [pxpay], regions: [domestic], rails: [pxpay], any_merchant: [pxpay]}
-    mode: instead
     rate: 0.02
-    reward: cathay_tree_point
   - id: autumn_8
     label: 秋日遊
-    effective:
-      from: "2026-10-01"
-      to: "2026-11-30"
+    effective: &autumn {from: "2026-10-01", to: "2026-11-30"}
     when: {schemes: [autumn], any_merchant: ["group:autumn_8"]}
-    mode: instead
     rate: 0.08
-    reward: cathay_tree_point
   - id: autumn_5
     label: 秋日遊
-    effective:
-      from: "2026-10-01"
-      to: "2026-11-30"
+    effective: *autumn
     when: {schemes: [autumn], any_merchant: ["group:autumn_5"]}
-    mode: instead
     rate: 0.05
-    reward: cathay_tree_point
   - id: autumn_uniqlo_jp
     label: 秋日遊
-    effective:
-      from: "2026-10-01"
-      to: "2026-11-30"
+    effective: *autumn
     when: {schemes: [autumn], regions: [overseas], any_merchant: [uniqlo]}
-    mode: instead
     rate: 0.05
-    reward: cathay_tree_point
   - id: autumn_4
     label: 秋日遊
-    effective:
-      from: "2026-10-01"
-      to: "2026-11-30"
+    effective: *autumn
     when: {schemes: [autumn], any_merchant: ["group:autumn_4"]}
-    mode: instead
     rate: 0.04
-    reward: cathay_tree_point
   - id: autumn_35
     label: 秋日遊
-    effective:
-      from: "2026-10-01"
-      to: "2026-11-30"
+    effective: *autumn
     when: {schemes: [autumn], any_merchant: ["group:autumn_35"]}
-    mode: instead
     rate: 0.035
-    reward: cathay_tree_point
   - id: autumn_3
     label: 秋日遊
-    effective:
-      from: "2026-10-01"
-      to: "2026-11-30"
+    effective: *autumn
     when: {schemes: [autumn], any_merchant: ["group:autumn_3"]}
-    mode: instead
     rate: 0.03
-    reward: cathay_tree_point
   - id: general
     kind: general
     label: 一般消費
     unless: {any_merchant: [utilities, insurance, tax]}
-    mode: instead
     rate: 0.003
-    reward: cathay_tree_point

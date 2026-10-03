@@ -1,8 +1,8 @@
 id: sinopac-sport
 name: 永豐 SPORT
 issuer: 永豐銀行
-image: catalog/cards/sinopac-sport.png
 networks: [visa, mastercard, jcb]
+reward: sinopac_feng
 source: https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/bankcard/sportcard.html
 effective:
   from: "2026-07-01"
@@ -50,26 +50,21 @@ rules:
     kind: general
     label: 一般消費
     unless: {any_merchant: [insurance]}
-    mode: instead
     rate: 0.003
-    reward: sinopac_feng
   - id: ebill
     label: 電子帳單
     when: {flags_all: [ebill]}
     unless: {any_merchant: [insurance]}
     mode: extra
     rate: 0.007
-    reward: sinopac_feng
   - id: sport
     label: 運動獎勵
     when: {flags_all: [sport, autodebit]}
     unless: {any_merchant: [insurance]}
     mode: extra
     rate: 0.01
-    reward: sinopac_feng
   - id: channel
     label: 指定支付通路
     when: {flags_all: [sport, autodebit], any_merchant: ["group:channel"]}
     mode: extra
     rate: 0.03
-    reward: sinopac_feng

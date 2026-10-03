@@ -1,8 +1,8 @@
 id: ctbc-uniopen
 name: 中信 uniopen
 issuer: 中國信託
-image: catalog/cards/ctbc-uniopen.png
 networks: [mastercard]
+reward: open_point
 source: https://www.ctbcbank.com/twrbo/zh_tw/cc_index/cc_product/cc_introduction_index/C_uniopen.html
 effective:
   from: "2026-09-01"
@@ -60,37 +60,30 @@ rules:
     label: 國內一般消費
     when: {regions: [domestic]}
     unless: {any_merchant: ["group:excluded"]}
-    mode: instead
     rate: 0.01
-    reward: open_point
   - id: overseas
     kind: general
     label: 國外一般消費
     when: {regions: [overseas]}
     unless: {any_merchant: ["group:excluded"]}
-    mode: instead
     rate: 0.02
-    reward: open_point
   - id: uni
     label: 統一企業集團
     when: {any_merchant: ["group:uni"]}
     mode: extra
     rate: 0.02
-    reward: open_point
     cap: {id: uniopen_uni, max_reward: 500, period: calendar_month}
   - id: step
     label: 統一踩點
     when: {tiers: [b2, b3, b4, b5], any_merchant: ["group:uni"]}
     mode: extra
     rate_by_tier: {b2: 0.01, b3: 0.02, b4: 0.03, b5: 0.04}
-    reward: open_point
     cap: {id: uniopen_step, max_reward: 500, period: calendar_month}
   - id: icash
     label: icash Pay
     when: {any_merchant: [icash_pay]}
     mode: extra
     rate: 0.04
-    reward: open_point
     cap: {id: uniopen_icash, max_reward: 150, period: calendar_month}
   - id: overseas_present
     label: 國外實體
@@ -100,7 +93,6 @@ rules:
     unless: {any_merchant: ["group:uni", "group:excluded"]}
     mode: extra
     rate: 0.01
-    reward: open_point
   - id: overseas_boost
     label: 國外實體加碼
     when:
@@ -109,5 +101,4 @@ rules:
     unless: {any_merchant: ["group:uni", "group:excluded"]}
     mode: extra
     rate: 0.08
-    reward: open_point
     cap: {id: uniopen_overseas, max_reward: 500, period: calendar_month}

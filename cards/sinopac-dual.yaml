@@ -1,8 +1,8 @@
 id: sinopac-dual
 name: 永豐幣倍
 issuer: 永豐銀行
-image: catalog/cards/sinopac-dual.png
 networks: [visa, mastercard, jcb]
+reward: twd_cash
 source: https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/bankcard/dual-currency-card.html
 effective:
   from: "2026-07-01"
@@ -83,29 +83,22 @@ rules:
     label: 國內一般消費
     when: {regions: [domestic]}
     unless: {any_merchant: [insurance]}
-    mode: instead
     rate: 0.01
-    reward: twd_cash
   - id: overseas
     kind: general
     label: 國外一般消費
     when: {regions: [overseas]}
     unless: {any_merchant: [insurance]}
-    mode: instead
     rate: 0.02
-    reward: twd_cash
   - id: insurance
     label: 保費
     when: {any_merchant: [insurance]}
-    mode: instead
     rate: 0.012
-    reward: twd_cash
   - id: selected
     label: 精選通路
     when: {flags_all: [linked, qualified], any_merchant: ["group:selected"]}
     mode: extra
     rate: 0.04
-    reward: twd_cash
     cap: {id: dual_selected, max_reward: 800, period: billing_cycle}
   - id: selected_present
     label: 國外實體
@@ -116,5 +109,4 @@ rules:
     unless: {any_merchant: ["group:selected", insurance]}
     mode: extra
     rate: 0.04
-    reward: twd_cash
     cap: {id: dual_selected, max_reward: 800, period: billing_cycle}

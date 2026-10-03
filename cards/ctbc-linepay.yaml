@@ -1,8 +1,8 @@
 id: ctbc-linepay
 name: 中國信託 LINE Pay 卡
 issuer: 中國信託
-image: catalog/cards/ctbc-linepay.png
 networks: [visa, mastercard, jcb]
+reward: line_points
 source: https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html
 effective:
   from: "2026-07-01"
@@ -23,9 +23,7 @@ rules:
   - id: overseas
     label: 海外實體
     when: {regions: [overseas], rails: [card_present]}
-    mode: instead
     rate: 0.028
-    reward: line_points
   - id: visa_promo
     label: Visa 指定通路
     when:
@@ -33,9 +31,7 @@ rules:
       regions: [domestic]
       flags_all: ["enrolled:visa_h2"]
       any_merchant: ["group:visa_promo"]
-    mode: instead
     rate: 0.05
-    reward: line_points
     cap: {id: linepay_visa_q, max_reward: 100, period: calendar_quarter}
   - id: jcb_promo
     label: JCB 指定通路
@@ -44,14 +40,10 @@ rules:
       regions: [domestic]
       flags_all: ["enrolled:jcb_h2"]
       any_merchant: ["group:jcb_promo"]
-    mode: instead
     rate: 0.10
-    reward: line_points
     cap: {id: linepay_jcb_q, max_reward: 200, period: calendar_quarter}
   - id: general
     kind: general
     label: 一般消費
     unless: {any_merchant: ["group:excluded"]}
-    mode: instead
     rate: 0.01
-    reward: line_points

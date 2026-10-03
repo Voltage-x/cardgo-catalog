@@ -1,8 +1,8 @@
 id: ubot-m
 name: 聯邦 M
 issuer: 聯邦銀行
-image: catalog/cards/ubot-m.png
 networks: [mastercard]
+reward: twd_cash
 source: https://card.ubot.com.tw/CardDetail/cardDetail203
 effective:
   from: "2026-01-01"
@@ -16,28 +16,7 @@ flags:
 groups:
   europe: [uk, france, germany, italy]
   travel:
-    - china_airlines
-    - eva_air
-    - starlux
-    - tigerair
-    - cathay_pacific
-    - mandarin_airlines
-    - uni_air
-    - peach
-    - emirates
-    - scoot
-    - jetstar
-    - jal
-    - ana
-    - airasia
-    - united
-    - singapore_air
-    - vietjet
-    - korean_air
-    - delta
-    - turkish
-    - qatar
-    - air_france
+    - "tag:airline"
     - domestic_hotel
     - booking
     - agoda
@@ -76,74 +55,54 @@ rules:
     label: 國外實體
     when: {regions: [overseas], rails: [card_present], flags_all: [ebill]}
     unless: {any_merchant: ["group:europe"]}
-    mode: instead
     rate: 0.03
-    reward: twd_cash
   - id: overseas
     kind: general
     label: 國外消費
     when: {regions: [overseas], flags_all: [ebill]}
     unless: {any_merchant: ["group:europe"]}
-    mode: instead
     rate: 0.015
-    reward: twd_cash
   - id: overseas_plain
     kind: general
     label: 國外消費
     when: {regions: [overseas], flags_none: [ebill]}
     unless: {any_merchant: ["group:europe"]}
-    mode: instead
     rate: 0.015
-    reward: twd_cash
   - id: domestic
     kind: general
     label: 國內一般消費
     when: {regions: [domestic], flags_all: [ebill]}
     unless: {any_merchant: [insurance]}
-    mode: instead
     rate: 0.01
-    reward: twd_cash
   - id: domestic_plain
     kind: general
     label: 國內一般消費
     when: {regions: [domestic], flags_none: [ebill]}
     unless: {any_merchant: [insurance]}
-    mode: instead
     rate: 0.005
-    reward: twd_cash
   - id: travel
     label: 指定交通旅遊
     when: {flags_all: [ebill], any_merchant: ["group:travel"]}
-    mode: instead
     rate: 0.06
-    reward: twd_cash
     cap: {id: m_travel, max_reward: 300, period: calendar_month}
   - id: travel_after
     label: 指定交通旅遊達上限
     when: {flags_all: [ebill], any_merchant: ["group:travel"]}
-    mode: instead
     rate: 0.01
-    reward: twd_cash
   - id: travel_os
     label: 指定交通旅遊
     when: {flags_none: [ebill], regions: [overseas], any_merchant: ["group:travel"]}
-    mode: instead
     rate: 0.015
-    reward: twd_cash
     cap: {id: m_travel, max_reward: 300, period: calendar_month}
   - id: travel_dom
     label: 指定交通旅遊
     when: {flags_none: [ebill], regions: [domestic], any_merchant: ["group:travel"]}
-    mode: instead
     rate: 0.005
-    reward: twd_cash
     cap: {id: m_travel, max_reward: 300, period: calendar_month}
   - id: travel_after_plain
     label: 指定交通旅遊達上限
     when: {flags_none: [ebill], any_merchant: ["group:travel"]}
-    mode: instead
     rate: 0.005
-    reward: twd_cash
   - id: insurance
     label: 保費
     when:
@@ -151,15 +110,11 @@ rules:
       any_merchant: [insurance]
       flags_all: [ebill]
       flags_none: [insurance_installment]
-    mode: instead
     rate: 0.012
-    reward: twd_cash
   - id: insurance_plain
     label: 保費
     when:
       regions: [domestic]
       any_merchant: [insurance]
       flags_none: [ebill, insurance_installment]
-    mode: instead
     rate: 0.005
-    reward: twd_cash

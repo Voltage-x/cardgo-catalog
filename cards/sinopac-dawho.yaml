@@ -1,8 +1,8 @@
 id: sinopac-dawho
 name: 永豐 DAWHO
 issuer: 永豐銀行
-image: catalog/cards/sinopac-dawho.png
 networks: [visa, mastercard, jcb]
+reward: twd_cash
 source: https://bank.sinopac.com/sinopacBT/personal/credit-card/introduction/bankcard/DAWHO.html
 effective:
   from: "2026-07-01"
@@ -19,24 +19,19 @@ rules:
     label: 國內一般消費
     when: {regions: [domestic]}
     unless: {any_merchant: [easycard_autoload]}
-    mode: instead
     rate: 0.01
-    reward: twd_cash
   - id: overseas_base
     kind: general
     label: 海外一般消費
     when: {regions: [overseas]}
     unless: {any_merchant: [easycard_autoload]}
-    mode: instead
     rate: 0.02
-    reward: twd_cash
   - id: domestic_bonus
     label: 國內任務加碼
     when: {regions: [domestic], tiers: [dahu, dahu_plus]}
     unless: {any_merchant: [easycard_autoload, insurance]}
     mode: extra
     rate_by_tier: {dahu: 0.025, dahu_plus: 0.04}
-    reward: twd_cash
     cap:
       id: dawho_bonus
       period: billing_cycle
@@ -47,7 +42,6 @@ rules:
     unless: {any_merchant: [easycard_autoload, insurance]}
     mode: extra
     rate_by_tier: {dahu: 0.025, dahu_plus: 0.04}
-    reward: twd_cash
     cap:
       id: dawho_bonus
       period: billing_cycle
@@ -55,9 +49,7 @@ rules:
   - id: easycard
     label: 悠遊卡自動加值
     when: {any_merchant: [easycard_autoload], tiers: [dahu, dahu_plus]}
-    mode: instead
     rate_by_tier: {dahu: 0.03, dahu_plus: 0.05}
-    reward: twd_cash
     cap:
       id: dawho_easycard
       period: billing_cycle

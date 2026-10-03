@@ -1,8 +1,8 @@
 id: esun-unicard
 name: 玉山 Unicard
 issuer: 玉山銀行
-image: catalog/cards/esun-unicard.png
 networks: [visa, mastercard, jcb]
+reward: esun_epoint
 source: https://www.esunbank.com/zh-tw/personal/credit-card/intro/bank-card/unicard
 effective:
   from: "2026-07-01"
@@ -129,35 +129,28 @@ rules:
     when: {schemes: [simple], any_merchant: ["group:unicard_top100"]}
     mode: extra
     rate: 0.02
-    reward: esun_epoint
     cap: {id: unicard_bonus, max_reward: 1000, period: calendar_month}
   - id: bonus_pick
     label: 任意選加碼
     when: {schemes: [pick8], any_merchant: [picked]}
     mode: extra
     rate: 0.025
-    reward: esun_epoint
     cap: {id: unicard_bonus, max_reward: 1000, period: calendar_month}
   - id: bonus_up
     label: UP選加碼
     when: {schemes: [up], any_merchant: ["group:unicard_top100"]}
     mode: extra
     rate: 0.035
-    reward: esun_epoint
     cap: {id: unicard_bonus, max_reward: 5000, period: calendar_month}
   - id: base_full
     kind: general
     label: 一般消費
     when: {flags_all: [ebill, autodebit]}
     unless: {any_merchant: ["group:excluded"]}
-    mode: instead
     rate: 0.01
-    reward: esun_epoint
   - id: base_ebill
     kind: general
     label: 一般消費
     when: {flags_all: [ebill], flags_none: [autodebit]}
     unless: {any_merchant: ["group:excluded"]}
-    mode: instead
     rate: 0.003
-    reward: esun_epoint
