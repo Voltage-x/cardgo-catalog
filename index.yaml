@@ -1,5 +1,5 @@
-version: 7
-format: 2
+version: 8
+format: 3
 merchants: merchants.yaml
 currencies: currencies.yaml
 dates:

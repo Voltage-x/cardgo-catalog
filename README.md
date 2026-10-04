@@ -45,7 +45,7 @@ App 讀檔時會檢查欄位。打錯欄位名稱、引用不存在的通路、�
 | `reward` | 預設回饋幣別，規則沒寫 `reward` 就用這個。 |
 | `image` | 卡圖，相對於目錄根目錄，預設 `cards/<id>.png`。 |
 | `effective` | `from`、`to`。規則沒寫自己的 `effective` 就沿用。 |
-| `settlement` | `note` 顯示給使用者；`retroactive: calendar_day` 代表切換方案會回溯整天。 |
+| `settlement` | `note` 顯示給使用者。`retroactive` 是改卡片設定時會跟著重算的範圍：`calendar_day` 回溯整天、`calendar_month` 回溯整月、`billing_cycle` 回溯本帳單週期（沒寫就是這個）。App 會提示這段期間內會少拿多少回饋。 |
 | `tiers`、`flags` | 使用者自己選的等級（單選）與條件（可複選），都是 `{id, name}`。 |
 | `schemes` | 方案。`pick_max` 可自選通路數、`pick_pool` 可選的群組、`lock_until` 日期或 `end_of_month`。 |
 | `switches` | 切換次數限制：`max`、`period`、`actions`（`change_scheme`、`change_picks`）。 |

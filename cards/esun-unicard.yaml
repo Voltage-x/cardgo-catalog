@@ -8,7 +8,8 @@ effective:
   from: "2026-07-01"
   to: "2026-12-31"
 settlement:
-  note: 百大加碼以每月最後一天的方案結算。這裡用你現在選的方案估算。
+  note: 百大加碼以每月最後一天的方案結算。換方案或已選通路時，本月已記的消費會依新設定重算。
+  retroactive: calendar_month
 caveat: 用 LINE Pay 等支付去買電商或百貨時，銀行可能改算成行動支付。1 點 e point 先按 1 元。
 tiers:
   - {id: standard, name: 一般}
